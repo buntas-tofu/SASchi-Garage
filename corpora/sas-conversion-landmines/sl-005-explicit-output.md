@@ -24,8 +24,10 @@ selected input rows emit, and that an earlier snapshot survives a later failed
 subsetting IF.
 
 The event profile supports one simple DATA destination, with bare OUTPUT or
-OUTPUT to that destination. Multiple destinations and DATA _NULL_ explicit OUTPUT
-remain deferred. The original September 4/9 witness below remains a design, not
+OUTPUT to that destination. Multiple destinations remain deferred. DATA _NULL_
+explicit OUTPUT is refused with PUT _ALL_ or counted/UNTIL/WHILE loops; scalar
+DATA _NULL_ OUTPUT is outside these mapped named-dataset witnesses, not a general
+source refusal. The original September 4/9 witness below remains a design, not
 the executed 13/29/47 witness. Citation retrieval timed out on 2026-10-27;
 accessibility is unresolved, not proven broken. Its consultation date is retained.
 

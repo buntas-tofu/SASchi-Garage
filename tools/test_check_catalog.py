@@ -61,6 +61,17 @@ class EvidenceMapTests(unittest.TestCase):
                 with self.assertRaises((AssertionError, ValueError)):
                     self.validate(data)
 
+    def test_public_artifact_url_matches_literal_git_path(self):
+        for path in ('examples/verify_events.py#other', 'examples/verify_events.py?raw=1',
+                     'examples/%2e%2e/private', 'examples/%23name.py',
+                     'examples/verify events.py', 'examples/verify_events.py\n'):
+            with self.subTest(path=repr(path)):
+                data = deepcopy(self.evidence_map)
+                data['artifacts']['events_gate'].update(
+                    path=path, url=f"{data['repository']}/blob/{data['snapshot']['commit']}/{path}")
+                with self.assertRaises(AssertionError):
+                    self.validate(data)
+
     def test_catalog_promotion_and_mismatch_controls(self):
         for label in ('review_status', 'validation_basis', 'map', 'go_commit', 'level'):
             with self.subTest(control=label):

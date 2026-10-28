@@ -280,7 +280,7 @@
       ],
       "remaining_gaps": [
         "The event profile admits one simple DATA destination and bare OUTPUT or OUTPUT to that destination; multiple destinations remain deferred.",
-        "DS-006 is adjacent state context, not a dedicated OUTPUT rule or proof for every output context. DATA _NULL_ explicit OUTPUT and broader destination routing need separate evidence.",
+        "DS-006 is adjacent state context, not a dedicated OUTPUT rule or proof for every output context. DATA _NULL_ explicit OUTPUT with PUT_ALL or counted/UNTIL/WHILE loops is refused; scalar DATA _NULL_ OUTPUT is outside these mapped named-dataset witnesses, not a general source refusal. Broader destination routing needs separate evidence.",
         "Independent review and live-SAS cardinality/value/order captures remain outstanding; OUTPUT citation access is unresolved."
       ]
     },

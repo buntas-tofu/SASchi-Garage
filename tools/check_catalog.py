@@ -9,6 +9,7 @@ import json
 import re
 import subprocess
 from pathlib import Path
+from urllib.parse import quote
 
 ROOT = Path(__file__).resolve().parent.parent
 
@@ -18,6 +19,8 @@ def relative_path(value):
     path = Path(value)
     assert not path.is_absolute() and '..' not in path.parts, value
     assert '\\' not in value and path.as_posix() == value, value
+    # Public URLs use these paths literally, without encoding or URL components.
+    assert quote(value, safe='/') == value, value
     return path
 
 

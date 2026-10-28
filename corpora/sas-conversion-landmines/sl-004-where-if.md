@@ -2,10 +2,29 @@
 
 Status: candidate migration research reference; not an agency finding.
 Evidence: published contract plus original witness design, not a live-SAS receipt.
+Coverage update: bounded Go repository/base-R witnesses, recorded at the pinned commit below; no live-SAS validation or card promotion.
 Scope: cited product/version only; target-runtime behavior must be checked.
 Priority: P0, an engineering judgment, not an observed frequency.
 Related rulebook entries: DS-005, DS-006.
-Coverage assessment: Adjacent coverage; explicit filter-order witness proposed. An entry's existence is not an equivalence proof.
+Coverage assessment (2026-10-27): WHERE/IF timing has an executed repository/base-R FIRST discriminator; source tests also pin LAST and multi-key flag propagation. Broader engine and predicate behavior remains outside this evidence.
+
+## Pinned implementation evidence
+
+Status: repository/base-R evidence for principal/maintainer review, not live-SAS
+validation. The [dated evidence map](../../research/GO_EVIDENCE_20261027.json)
+pins Go `dc32d355b1ca27085970ff0e651df8d6b0726bcc` and DS-005/DS-006 context.
+[The event gate](https://github.com/buntas-tofu/SASchi-Go/blob/dc32d355b1ca27085970ff0e651df8d6b0726bcc/examples/verify_events.py)
+uses groups 7,7,9 and keep values 0,1,1. FIRST.g is 1,1 after WHERE, versus 0,1
+after subsetting IF. The independent R discriminator checks that difference.
+[The source suite](https://github.com/buntas-tofu/SASchi-Go/blob/dc32d355b1ca27085970ff0e651df8d6b0726bcc/saschi/test_events.py)
+also checks _N_ timing, LAST.g on selected groups, and FIRST./LAST. propagation
+when an earlier key changes in a multi-key BY list.
+
+WHERE reads driving-input columns before flags form; assignments do not change
+its input selection. Subsetting IF runs in source order after the read and flags.
+The profile requires ascending input sorted after WHERE and bounded predicates;
+WHERE on automatic or newly created variables refuses. These witnesses do not
+cover every BY option or SAS engine. The September queue design remains unrun.
 
 ## Failure mechanism
 

@@ -39,6 +39,19 @@ def read_go_artifact(repository, commit, path):
                           capture_output=True, check=True, timeout=30).stdout
 
 
+def coverage_records(doc):
+    """Current evidence and explicitly retained historical snapshots."""
+    current = doc.get('coverage_evidence')
+    history = doc.get('coverage_evidence_history', [])
+    assert isinstance(history, list)
+    assert not history or current is not None, doc['id']
+    records = ([current] if current is not None else []) + history
+    assert len({r['map'] for r in records}) == len(records), doc['id']
+    for older in history:
+        assert older['as_of'] < current['as_of'], doc['id']
+    return records
+
+
 def validate_evidence_map(evidence_map, catalog, map_path, go_repository=None):
     """Check references offline; optionally resolve immutable Go Git objects.
 
@@ -120,7 +133,8 @@ def validate_evidence_map(evidence_map, catalog, map_path, go_repository=None):
         assert meta['review_status'] == 'unreviewed' and meta['validation_basis'] == 'asserted', ident
         expected_metadata = dict(map=map_path, card_id=ident, as_of=evidence_map['as_of'],
                                  go_commit=commit, level='BOUNDED_SOURCE_AND_BASE_R')
-        assert doc['coverage_evidence'] == expected_metadata, ident
+        matches = [r for r in coverage_records(doc) if r['map'] == map_path]
+        assert matches == [expected_metadata], ident
         body = (ROOT / doc['path']).read_text()
         assert Path(map_path).name in body and commit in body, ident
         nonempty_strings(card['rule_ids'])
@@ -149,7 +163,7 @@ def validate_evidence_map(evidence_map, catalog, map_path, go_repository=None):
             assert evidence['covered'].strip(), ident
             tests = evidence['source_tests']
             assert isinstance(tests, list) and len(set(tests)) == len(tests)
-            assert all(re.fullmatch(r'test_[a-z0-9_]+', t) for t in tests), ident
+            assert all(re.fullmatch(r'test_[A-Za-z0-9_]+', t) for t in tests), ident
             if level == 'BOUNDED_SOURCE_AND_BASE_R':
                 assert 'source_suite' in evidence_kinds and tests, ident
             else:
@@ -163,10 +177,86 @@ def validate_evidence_map(evidence_map, catalog, map_path, go_repository=None):
         assert 'BOUNDED_SOURCE_AND_BASE_R' in levels, ident
         nonempty_strings(card['remaining_gaps'])
     declared = {ident for ident, (doc, _) in docs.items()
-                if doc.get('coverage_evidence', {}).get('map') == map_path}
+                if any(r['map'] == map_path for r in coverage_records(doc))}
     assert seen == declared, (seen, declared)
     assert used == artifacts.keys(), ('unused artifacts', artifacts.keys() - used)
     return len(cards)
+
+
+def validate_verification_inventory(inventory, evidence_map, go_repository=None):
+    """Authenticate named runner coverage, without importing or executing Go."""
+    assert inventory['schema_version'] == 1
+    assert inventory['basis'] == 'RECORDED_NOT_RERUN'
+    assert inventory['grouping_basis'] == 'EDITORIAL_INFERENCE'
+    assert 'not a new Go run, live-SAS validation' in inventory['status']
+    iso_date(inventory['as_of'])
+    assert inventory['as_of'] == evidence_map['as_of']
+    repository, commit = inventory['repository'], inventory['commit']
+    assert repository == evidence_map['repository']
+    assert commit == evidence_map['snapshot']['commit']
+    acceptance = evidence_map['snapshot']['acceptance']
+    assert inventory['public_run_url'] == acceptance['public_run_url']
+    totals = inventory['totals']
+    for key in ('fixture_gates', 'suites', 'tests', 'skips'):
+        assert type(totals[key]) is int and totals[key] == acceptance[key], key
+    receipt = inventory['receipt']
+    assert type(receipt['artifact_id']) is int and receipt['artifact_id'] > 0
+    for key in ('archive_sha256', 'receipt_sha256'):
+        assert re.fullmatch(r'[0-9a-f]{64}', receipt[key]), key
+
+    def artifact(item, kind):
+        path = item['path']
+        relative_path(path)
+        assert item['kind'] == kind
+        assert item['url'] == f'{repository}/blob/{commit}/{path}'
+        assert re.fullmatch(r'[0-9a-f]{64}', item['sha256'])
+        if go_repository is not None:
+            data = read_go_artifact(go_repository, commit, path)
+            assert hashlib.sha256(data).hexdigest() == item['sha256'], path
+            return data
+
+    assert inventory['registry']['path'] == 'verify_all.py'
+    registry = artifact(inventory['registry'], 'registry')
+    fixtures, suites = inventory['fixtures'], inventory['suites']
+    assert len(fixtures) == totals['fixture_gates'] and len(suites) == totals['suites']
+    ids, paths = set(), set()
+    for kind, items in (('fixture', fixtures), ('suite', suites)):
+        for item in items:
+            assert re.fullmatch(r'[a-z][A-Za-z0-9_-]*', item['id'])
+            assert item['id'] not in ids and item['path'] not in paths
+            ids.add(item['id']); paths.add(item['path'])
+            assert isinstance(item['class'], str) and item['class'].strip()
+            if kind == 'fixture':
+                assert relative_path(item['path']).parts[0] in {'examples', 'tools'}
+                assert Path(item['path']).name.startswith('verify_') and item['path'].endswith('.py')
+            else:
+                assert item['id'].startswith('suite-')
+                assert re.fullmatch(r'saschi\.test_[a-z0-9_]+', item['module'])
+                assert item['path'] == item['module'].replace('.', '/') + '.py'
+                assert type(item['tests']) is int and item['tests'] > 0
+                assert type(item['skips']) is int and 0 <= item['skips'] <= item['tests']
+            artifact(item, kind)
+    assert sum(s['tests'] for s in suites) == totals['tests']
+    assert sum(s['skips'] for s in suites) == totals['skips']
+    separate = inventory['separate_checks']
+    assert separate == {'synthesis_faithful': 60, 'synthesis_naive_caught': 60,
+                        'two_1k_workloads': acceptance['checks_across_two_1k_workloads'],
+                        'whole_program_proofs': acceptance['complete_program_proofs']}
+    if registry is not None:
+        assignments = {n.targets[0].id: n.value for n in ast.parse(registry).body
+                       if isinstance(n, ast.Assign) and isinstance(n.targets[0], ast.Name)
+                       and n.targets[0].id in ('VERIFIERS', 'SUITES')}
+
+        def path_expression(node):
+            if isinstance(node, ast.Name) and node.id == 'HERE':
+                return ''
+            assert isinstance(node, ast.BinOp) and isinstance(node.op, ast.Div)
+            return path_expression(node.left) + '/' + ast.literal_eval(node.right)
+
+        expected_fixtures = [(ast.literal_eval(n.elts[0]), path_expression(n.elts[1]).lstrip('/'))
+                             for n in assignments['VERIFIERS'].elts]
+        assert [(f['id'], f['path']) for f in fixtures] == expected_fixtures
+        assert [(s['id'], s['module']) for s in suites] == ast.literal_eval(assignments['SUITES'])
 
 
 def check(go_repository=None):
@@ -214,14 +304,27 @@ def check(go_repository=None):
     map_paths = catalog['evidence_maps']
     nonempty_strings(map_paths)
     mapped_cards = 0
+    maps = {}
     for path in map_paths:
         assert relative_path(path).parts[0] == 'research' and path.endswith('.json'), path
         evidence_map = json.loads((ROOT / path).read_text())
+        maps[path] = evidence_map
         mapped_cards += validate_evidence_map(evidence_map, catalog, path, go_repository)
     for collection in catalog['collections']:
         for doc in collection['documents']:
-            if 'coverage_evidence' in doc:
-                assert doc['coverage_evidence']['map'] in map_paths, doc['id']
+            for record in coverage_records(doc):
+                assert record['map'] in map_paths, doc['id']
+    inventory_paths = catalog['verification_inventories']
+    nonempty_strings(inventory_paths)
+    used_inventories = set()
+    for evidence_map in maps.values():
+        path = evidence_map['snapshot']['acceptance'].get('verification_inventory')
+        if path is not None:
+            assert path in inventory_paths
+            assert relative_path(path).parts[0] == 'research' and path.endswith('.json')
+            validate_verification_inventory(json.loads((ROOT/path).read_text()), evidence_map, go_repository)
+            used_inventories.add(path)
+    assert used_inventories == set(inventory_paths)
     for folder in [ROOT, ROOT / 'corpora', ROOT / 'research']:
         files = folder.glob('*.md') if folder == ROOT else folder.rglob('*.md')
         for p in files:
@@ -232,7 +335,7 @@ def check(go_repository=None):
                     continue
                 target = link.split('#')[0]
                 assert (p.parent / target).is_file(), (p, target)
-    print(f'PASS: {len(collections)} collections, {len(paths)} cards, source metadata, local links, import records, {len(queue)} proposed tests; {len(map_paths)} evidence map, {mapped_cards} mapped cards')
+    print(f'PASS: {len(collections)} collections, {len(paths)} cards, source metadata, local links, import records, {len(queue)} proposed tests; {len(map_paths)} evidence maps, {mapped_cards} current/historical card records, {len(inventory_paths)} verification inventory')
 
 
 if __name__ == '__main__':

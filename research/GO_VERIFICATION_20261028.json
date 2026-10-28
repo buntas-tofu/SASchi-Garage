@@ -1,0 +1,877 @@
+{
+  "schema_version": 1,
+  "as_of": "2026-10-28",
+  "status": "Recorded hosted repository/base-R verification for principal/maintainer inspection; not a new Go run, live-SAS validation or a SAS-wide capability count.",
+  "repository": "https://github.com/buntas-tofu/SASchi-Go",
+  "commit": "9b86f957941a2dca14a90e8504f7913759e7e269",
+  "public_run_url": "https://github.com/buntas-tofu/SASchi-Go/actions/runs/40718206801",
+  "basis": "RECORDED_NOT_RERUN",
+  "grouping_basis": "EDITORIAL_INFERENCE",
+  "registry": {
+    "kind": "registry",
+    "path": "verify_all.py",
+    "sha256": "331e06996340cb747e57a21204ee89534a5074dfdb3fbb3268fd807d514f021f",
+    "url": "https://github.com/buntas-tofu/SASchi-Go/blob/9b86f957941a2dca14a90e8504f7913759e7e269/verify_all.py"
+  },
+  "receipt": {
+    "artifact_id": 12828969708,
+    "archive_sha256": "edef3a53b5edfe6b1316245f4320c3e7424715aa254fa2ca882080d824676561",
+    "receipt_sha256": "27b1c2e64294b3984f1e41d03f8136a10af2035c28c1dc34e6efee41b1c909f7"
+  },
+  "totals": {
+    "fixture_gates": 50,
+    "suites": 40,
+    "tests": 755,
+    "skips": 0
+  },
+  "fixtures": [
+    {
+      "id": "rounding_n",
+      "class": "Numeric and format semantics",
+      "kind": "fixture",
+      "path": "examples/verify_rounding.py",
+      "sha256": "f71e54e12ee1e90f7700530832fefbed2ffce39eba8b5bde55731ce089dd2992",
+      "url": "https://github.com/buntas-tofu/SASchi-Go/blob/9b86f957941a2dca14a90e8504f7913759e7e269/examples/verify_rounding.py"
+    },
+    {
+      "id": "rounding_n_R",
+      "class": "Numeric and format semantics",
+      "kind": "fixture",
+      "path": "examples/verify_rounding_r.py",
+      "sha256": "9696fcbba70bea81e85895b91c0ebe4430699c35f27efbf43b2accc52234fb67",
+      "url": "https://github.com/buntas-tofu/SASchi-Go/blob/9b86f957941a2dca14a90e8504f7913759e7e269/examples/verify_rounding_r.py"
+    },
+    {
+      "id": "intck",
+      "class": "Calendar and intervals",
+      "kind": "fixture",
+      "path": "examples/verify_intck.py",
+      "sha256": "0e49efebaf9086c5f8eee5c35ba687bf22f378b9a51b63d9147fa5339bd58b36",
+      "url": "https://github.com/buntas-tofu/SASchi-Go/blob/9b86f957941a2dca14a90e8504f7913759e7e269/examples/verify_intck.py"
+    },
+    {
+      "id": "funcs",
+      "class": "Character and string semantics",
+      "kind": "fixture",
+      "path": "examples/verify_funcs.py",
+      "sha256": "542c0f559ed6312dacd2f4865bc8f1240ad9632d45941d7709d2d4a6de7b873d",
+      "url": "https://github.com/buntas-tofu/SASchi-Go/blob/9b86f957941a2dca14a90e8504f7913759e7e269/examples/verify_funcs.py"
+    },
+    {
+      "id": "bygroup",
+      "class": "Data, state and metadata",
+      "kind": "fixture",
+      "path": "examples/verify_bygroup.py",
+      "sha256": "b8563b4a17558f1928b31e69169bdf67bac40c765d90b226cc393f461d8a1f2b",
+      "url": "https://github.com/buntas-tofu/SASchi-Go/blob/9b86f957941a2dca14a90e8504f7913759e7e269/examples/verify_bygroup.py"
+    },
+    {
+      "id": "sort",
+      "class": "Data, state and metadata",
+      "kind": "fixture",
+      "path": "examples/verify_sort.py",
+      "sha256": "b978b82d9139db8b45ca39a2b1bac46d94b18e7931ae6fe7f04949abc1ef0304",
+      "url": "https://github.com/buntas-tofu/SASchi-Go/blob/9b86f957941a2dca14a90e8504f7913759e7e269/examples/verify_sort.py"
+    },
+    {
+      "id": "numfmt",
+      "class": "Numeric and format semantics",
+      "kind": "fixture",
+      "path": "examples/verify_numfmt.py",
+      "sha256": "bcce55e511941682dd66e0e0c1ba3cce29b73241999ccc305d0def93caed4867",
+      "url": "https://github.com/buntas-tofu/SASchi-Go/blob/9b86f957941a2dca14a90e8504f7913759e7e269/examples/verify_numfmt.py"
+    },
+    {
+      "id": "numstat",
+      "class": "Statistics and matrices",
+      "kind": "fixture",
+      "path": "examples/verify_numstat.py",
+      "sha256": "4c1afbfab42974c0ff6ca901d0887b20c2a89ae075e77f99e44387d0ddb13663",
+      "url": "https://github.com/buntas-tofu/SASchi-Go/blob/9b86f957941a2dca14a90e8504f7913759e7e269/examples/verify_numstat.py"
+    },
+    {
+      "id": "weights",
+      "class": "Statistics and matrices",
+      "kind": "fixture",
+      "path": "examples/verify_weights.py",
+      "sha256": "fb6a1a5dea15016221b11922dd7b5c43a03af82668a9cebfb779078225083d99",
+      "url": "https://github.com/buntas-tofu/SASchi-Go/blob/9b86f957941a2dca14a90e8504f7913759e7e269/examples/verify_weights.py"
+    },
+    {
+      "id": "missarith",
+      "class": "Numeric and format semantics",
+      "kind": "fixture",
+      "path": "examples/verify_missarith.py",
+      "sha256": "b7118c8a3e5e815e58c499ffd3a5ad09557eb439f43213e8d31fda02eb91f57a",
+      "url": "https://github.com/buntas-tofu/SASchi-Go/blob/9b86f957941a2dca14a90e8504f7913759e7e269/examples/verify_missarith.py"
+    },
+    {
+      "id": "merge",
+      "class": "Data, state and metadata",
+      "kind": "fixture",
+      "path": "examples/verify_merge.py",
+      "sha256": "12a299cd33cabb471e3f0dd0578ab18f80591471472967c1c8020bd20affb3fe",
+      "url": "https://github.com/buntas-tofu/SASchi-Go/blob/9b86f957941a2dca14a90e8504f7913759e7e269/examples/verify_merge.py"
+    },
+    {
+      "id": "transpose",
+      "class": "Data, state and metadata",
+      "kind": "fixture",
+      "path": "examples/verify_transpose.py",
+      "sha256": "86e07f79490b2c694ee65ee3e859698cc351085a7a05dbccdbf00f4340452d4b",
+      "url": "https://github.com/buntas-tofu/SASchi-Go/blob/9b86f957941a2dca14a90e8504f7913759e7e269/examples/verify_transpose.py"
+    },
+    {
+      "id": "intnx",
+      "class": "Calendar and intervals",
+      "kind": "fixture",
+      "path": "examples/verify_intnx.py",
+      "sha256": "f41172ebbef88cf85988be8914fdf1f7d491409915a40493ed0c21de08cb15a7",
+      "url": "https://github.com/buntas-tofu/SASchi-Go/blob/9b86f957941a2dca14a90e8504f7913759e7e269/examples/verify_intnx.py"
+    },
+    {
+      "id": "formats",
+      "class": "Numeric and format semantics",
+      "kind": "fixture",
+      "path": "examples/verify_formats.py",
+      "sha256": "0a9f4340f9c205ea799acc87bd905a236d0b28763f32039aab4022542062010a",
+      "url": "https://github.com/buntas-tofu/SASchi-Go/blob/9b86f957941a2dca14a90e8504f7913759e7e269/examples/verify_formats.py"
+    },
+    {
+      "id": "arrays",
+      "class": "Arrays and control flow",
+      "kind": "fixture",
+      "path": "examples/verify_arrays.py",
+      "sha256": "0b79aff0e5ad83802a375dbe9bc353a8b01df989ef8e8e0e058ebc04c046872c",
+      "url": "https://github.com/buntas-tofu/SASchi-Go/blob/9b86f957941a2dca14a90e8504f7913759e7e269/examples/verify_arrays.py"
+    },
+    {
+      "id": "fisher",
+      "class": "Statistics and matrices",
+      "kind": "fixture",
+      "path": "examples/verify_fisher.py",
+      "sha256": "bf2d95b97a26d30f35dd9d29169609a00c1708b97937d89af868c2d8d8b70c3a",
+      "url": "https://github.com/buntas-tofu/SASchi-Go/blob/9b86f957941a2dca14a90e8504f7913759e7e269/examples/verify_fisher.py"
+    },
+    {
+      "id": "sigfig",
+      "class": "Numeric and format semantics",
+      "kind": "fixture",
+      "path": "examples/verify_sigfig.py",
+      "sha256": "f5cbe05c7c7a961ad197f9730f3506561edf5fdbf0d8081d492d870ff00d25f4",
+      "url": "https://github.com/buntas-tofu/SASchi-Go/blob/9b86f957941a2dca14a90e8504f7913759e7e269/examples/verify_sigfig.py"
+    },
+    {
+      "id": "csvimport",
+      "class": "Data, state and metadata",
+      "kind": "fixture",
+      "path": "examples/verify_csvimport.py",
+      "sha256": "f74f4ebbd483a6db6fa902096d1be590dd1b2092cfb27655ea7e2132f368f303",
+      "url": "https://github.com/buntas-tofu/SASchi-Go/blob/9b86f957941a2dca14a90e8504f7913759e7e269/examples/verify_csvimport.py"
+    },
+    {
+      "id": "freq",
+      "class": "Statistics and matrices",
+      "kind": "fixture",
+      "path": "examples/verify_freq.py",
+      "sha256": "1262a2c4b8b6731e713dfa6b239832c7b1ec6bf96d5bfb93c52538cc3e0ea1fe",
+      "url": "https://github.com/buntas-tofu/SASchi-Go/blob/9b86f957941a2dca14a90e8504f7913759e7e269/examples/verify_freq.py"
+    },
+    {
+      "id": "laplace",
+      "class": "Statistics and matrices",
+      "kind": "fixture",
+      "path": "examples/verify_laplace.py",
+      "sha256": "77ed082d468b8cb824e9097c18a0574474183b24c44967cf953bc4bc9dd1b618",
+      "url": "https://github.com/buntas-tofu/SASchi-Go/blob/9b86f957941a2dca14a90e8504f7913759e7e269/examples/verify_laplace.py"
+    },
+    {
+      "id": "matrix",
+      "class": "Statistics and matrices",
+      "kind": "fixture",
+      "path": "examples/verify_matrix.py",
+      "sha256": "ff947d0cde1e9b4be7769b699969021edb41b38727ff5064509055fe1c9a8d25",
+      "url": "https://github.com/buntas-tofu/SASchi-Go/blob/9b86f957941a2dca14a90e8504f7913759e7e269/examples/verify_matrix.py"
+    },
+    {
+      "id": "data-events",
+      "class": "Data, state and metadata",
+      "kind": "fixture",
+      "path": "examples/verify_events.py",
+      "sha256": "a5294f7511628371f7d85d45561eb082e4251af7680ee406f2f04d6377bb0f3c",
+      "url": "https://github.com/buntas-tofu/SASchi-Go/blob/9b86f957941a2dca14a90e8504f7913759e7e269/examples/verify_events.py"
+    },
+    {
+      "id": "typed-metadata",
+      "class": "Data, state and metadata",
+      "kind": "fixture",
+      "path": "examples/verify_metadata.py",
+      "sha256": "f9492908efea3071029c68b27689fee26b0138a07e8535390f012b29fac18080",
+      "url": "https://github.com/buntas-tofu/SASchi-Go/blob/9b86f957941a2dca14a90e8504f7913759e7e269/examples/verify_metadata.py"
+    },
+    {
+      "id": "lag-dif",
+      "class": "Data, state and metadata",
+      "kind": "fixture",
+      "path": "examples/verify_lag.py",
+      "sha256": "461eafeb33f5d6ff4e27ed24208bb3d1bbf7cab28fab0363e1a4fa6ceae59293",
+      "url": "https://github.com/buntas-tofu/SASchi-Go/blob/9b86f957941a2dca14a90e8504f7913759e7e269/examples/verify_lag.py"
+    },
+    {
+      "id": "capability-manifest",
+      "class": "Catalog and packaging",
+      "kind": "fixture",
+      "path": "examples/verify_capability.py",
+      "sha256": "3a9c2b367a9a1203d49de139f8b5354c3957e24d03ddbd453d843d17f536b397",
+      "url": "https://github.com/buntas-tofu/SASchi-Go/blob/9b86f957941a2dca14a90e8504f7913759e7e269/examples/verify_capability.py"
+    },
+    {
+      "id": "count",
+      "class": "Character and string semantics",
+      "kind": "fixture",
+      "path": "examples/verify_count.py",
+      "sha256": "f5ef9e3213fedcfdf851d464ee16061f7f31f682e7206dc7c0b0fa463e3e414a",
+      "url": "https://github.com/buntas-tofu/SASchi-Go/blob/9b86f957941a2dca14a90e8504f7913759e7e269/examples/verify_count.py"
+    },
+    {
+      "id": "put-literal",
+      "class": "PUT output",
+      "kind": "fixture",
+      "path": "examples/verify_put.py",
+      "sha256": "b6e721828410b1fa87db2e3e658726a29ee5719ba2927f56718d0e766724f0ca",
+      "url": "https://github.com/buntas-tofu/SASchi-Go/blob/9b86f957941a2dca14a90e8504f7913759e7e269/examples/verify_put.py"
+    },
+    {
+      "id": "mod",
+      "class": "Numeric and format semantics",
+      "kind": "fixture",
+      "path": "examples/verify_mod.py",
+      "sha256": "c1dcb668f5d29e1dc8c624dc7fe5465278bbd0aa858e0cee6a0326f78051c7d9",
+      "url": "https://github.com/buntas-tofu/SASchi-Go/blob/9b86f957941a2dca14a90e8504f7913759e7e269/examples/verify_mod.py"
+    },
+    {
+      "id": "put-character-list",
+      "class": "PUT output",
+      "kind": "fixture",
+      "path": "examples/verify_put_list.py",
+      "sha256": "e9fcf7b64a11b8e7750dc514379c7edddc0358b0609d64e81e99a0142c66e460",
+      "url": "https://github.com/buntas-tofu/SASchi-Go/blob/9b86f957941a2dca14a90e8504f7913759e7e269/examples/verify_put_list.py"
+    },
+    {
+      "id": "wheel-install",
+      "class": "Catalog and packaging",
+      "kind": "fixture",
+      "path": "tools/verify_wheel.py",
+      "sha256": "c083c44b3132617d7d49e8bfd09d6dd3db9970e479e5dd34aa80a73f966a8f12",
+      "url": "https://github.com/buntas-tofu/SASchi-Go/blob/9b86f957941a2dca14a90e8504f7913759e7e269/tools/verify_wheel.py"
+    },
+    {
+      "id": "put-all",
+      "class": "PUT output",
+      "kind": "fixture",
+      "path": "examples/verify_put_all.py",
+      "sha256": "d6204caceee9780bcf333c71c0a57af23e50918e43accfd4c112c5ff8af22a6d",
+      "url": "https://github.com/buntas-tofu/SASchi-Go/blob/9b86f957941a2dca14a90e8504f7913759e7e269/examples/verify_put_all.py"
+    },
+    {
+      "id": "do-counted",
+      "class": "Arrays and control flow",
+      "kind": "fixture",
+      "path": "examples/verify_do_counted.py",
+      "sha256": "2f460682ca92645d22e10fb68115e50d365ad466527410b82f5523fd4e8b69c8",
+      "url": "https://github.com/buntas-tofu/SASchi-Go/blob/9b86f957941a2dca14a90e8504f7913759e7e269/examples/verify_do_counted.py"
+    },
+    {
+      "id": "put-numeric-list",
+      "class": "PUT output",
+      "kind": "fixture",
+      "path": "examples/verify_put_numeric.py",
+      "sha256": "84fb4059e935e1d1c1c32a6a502abb3d0a6ade850629b62deae15b2cada6805f",
+      "url": "https://github.com/buntas-tofu/SASchi-Go/blob/9b86f957941a2dca14a90e8504f7913759e7e269/examples/verify_put_numeric.py"
+    },
+    {
+      "id": "length-reverse",
+      "class": "Character and string semantics",
+      "kind": "fixture",
+      "path": "examples/verify_length_reverse.py",
+      "sha256": "8818170b495940d96640ba18f42390767a2ae5587e508713ffec76bdb033b3d4",
+      "url": "https://github.com/buntas-tofu/SASchi-Go/blob/9b86f957941a2dca14a90e8504f7913759e7e269/examples/verify_length_reverse.py"
+    },
+    {
+      "id": "concat-catx",
+      "class": "Character and string semantics",
+      "kind": "fixture",
+      "path": "examples/verify_concat_catx.py",
+      "sha256": "f292a8cd71842ee7884377d2e914b4b06522871ad33e5e8ec17ca38ad4f71266",
+      "url": "https://github.com/buntas-tofu/SASchi-Go/blob/9b86f957941a2dca14a90e8504f7913759e7e269/examples/verify_concat_catx.py"
+    },
+    {
+      "id": "substr",
+      "class": "Character and string semantics",
+      "kind": "fixture",
+      "path": "examples/verify_substr.py",
+      "sha256": "3ed4590e1e72cbbd01769231cd00f08e8977a2622d6e1a52dba154596ec6f5b1",
+      "url": "https://github.com/buntas-tofu/SASchi-Go/blob/9b86f957941a2dca14a90e8504f7913759e7e269/examples/verify_substr.py"
+    },
+    {
+      "id": "substr-compositions",
+      "class": "Character and string semantics",
+      "kind": "fixture",
+      "path": "examples/verify_substr_compositions.py",
+      "sha256": "cb032bdb40249f69a0fdf948edf2d87bfa9ff69b4f94ae1bb6ebb7d607088b9f",
+      "url": "https://github.com/buntas-tofu/SASchi-Go/blob/9b86f957941a2dca14a90e8504f7913759e7e269/examples/verify_substr_compositions.py"
+    },
+    {
+      "id": "do-if",
+      "class": "Arrays and control flow",
+      "kind": "fixture",
+      "path": "examples/verify_do_if.py",
+      "sha256": "686027e239221303656449d7fff1be9e886d14e39131eac6e01d54317739e459",
+      "url": "https://github.com/buntas-tofu/SASchi-Go/blob/9b86f957941a2dca14a90e8504f7913759e7e269/examples/verify_do_if.py"
+    },
+    {
+      "id": "bitwise",
+      "class": "Bitwise semantics",
+      "kind": "fixture",
+      "path": "examples/verify_bitwise.py",
+      "sha256": "fc47e929d1c52c05ecac919a4eaa2f63f8a5775014756414d5f903bbae5b5da5",
+      "url": "https://github.com/buntas-tofu/SASchi-Go/blob/9b86f957941a2dca14a90e8504f7913759e7e269/examples/verify_bitwise.py"
+    },
+    {
+      "id": "lag-execution",
+      "class": "Data, state and metadata",
+      "kind": "fixture",
+      "path": "examples/verify_lag_execution.py",
+      "sha256": "5676872c9bf71cfce31dc6b1549d069b381eda08c8a4f7f3df43f09b22bc27c1",
+      "url": "https://github.com/buntas-tofu/SASchi-Go/blob/9b86f957941a2dca14a90e8504f7913759e7e269/examples/verify_lag_execution.py"
+    },
+    {
+      "id": "calendar",
+      "class": "Calendar and intervals",
+      "kind": "fixture",
+      "path": "examples/verify_calendar.py",
+      "sha256": "15aeb88440846282487f301f7a840d0cb75051dab3a005adeabbc63dc49d51b1",
+      "url": "https://github.com/buntas-tofu/SASchi-Go/blob/9b86f957941a2dca14a90e8504f7913759e7e269/examples/verify_calendar.py"
+    },
+    {
+      "id": "sum-statement",
+      "class": "Data, state and metadata",
+      "kind": "fixture",
+      "path": "examples/verify_sum_statement.py",
+      "sha256": "f02b78c4ad77554065735a530604bdca38766d85075aecd5efb234b94ab2b2e1",
+      "url": "https://github.com/buntas-tofu/SASchi-Go/blob/9b86f957941a2dca14a90e8504f7913759e7e269/examples/verify_sum_statement.py"
+    },
+    {
+      "id": "do-until",
+      "class": "Arrays and control flow",
+      "kind": "fixture",
+      "path": "examples/verify_do_until.py",
+      "sha256": "fc26f35512ae893ec63f86af924e61ea497a7efa195b4862dfa2f64dff8325f8",
+      "url": "https://github.com/buntas-tofu/SASchi-Go/blob/9b86f957941a2dca14a90e8504f7913759e7e269/examples/verify_do_until.py"
+    },
+    {
+      "id": "division",
+      "class": "Numeric and format semantics",
+      "kind": "fixture",
+      "path": "examples/verify_division.py",
+      "sha256": "7640ab272ed1d49180f673726ccac76dc74f0ea70b7cbe8b082c184e1cb883c3",
+      "url": "https://github.com/buntas-tofu/SASchi-Go/blob/9b86f957941a2dca14a90e8504f7913759e7e269/examples/verify_division.py"
+    },
+    {
+      "id": "int",
+      "class": "Numeric and format semantics",
+      "kind": "fixture",
+      "path": "examples/verify_int.py",
+      "sha256": "b01e7de2bf9bcd067a9040d830f9c368abf3cca48105c2a1b9103c4e8a1a8274",
+      "url": "https://github.com/buntas-tofu/SASchi-Go/blob/9b86f957941a2dca14a90e8504f7913759e7e269/examples/verify_int.py"
+    },
+    {
+      "id": "do-while",
+      "class": "Arrays and control flow",
+      "kind": "fixture",
+      "path": "examples/verify_do_while.py",
+      "sha256": "6761a21ea4e0ee6c100edf7c0bef1fe54a92a15cb5575bf9b7992f6bfe89990b",
+      "url": "https://github.com/buntas-tofu/SASchi-Go/blob/9b86f957941a2dca14a90e8504f7913759e7e269/examples/verify_do_while.py"
+    },
+    {
+      "id": "numeric-arrays",
+      "class": "Arrays and control flow",
+      "kind": "fixture",
+      "path": "examples/verify_numeric_arrays.py",
+      "sha256": "73e9030a69054e13af568b79f656462872ca267a0cc942424fa431f55634c9fe",
+      "url": "https://github.com/buntas-tofu/SASchi-Go/blob/9b86f957941a2dca14a90e8504f7913759e7e269/examples/verify_numeric_arrays.py"
+    },
+    {
+      "id": "do-over",
+      "class": "Arrays and control flow",
+      "kind": "fixture",
+      "path": "examples/verify_do_over.py",
+      "sha256": "a37f2a7571be052419f70cb6d7098a66478bab643ec354451901a31c4fc699f2",
+      "url": "https://github.com/buntas-tofu/SASchi-Go/blob/9b86f957941a2dca14a90e8504f7913759e7e269/examples/verify_do_over.py"
+    },
+    {
+      "id": "counted-nested",
+      "class": "Arrays and control flow",
+      "kind": "fixture",
+      "path": "examples/verify_counted_nested.py",
+      "sha256": "e89382773b62bff9e6e202fb963cb7ad28a2b63c542f0e2d002e9209427847ce",
+      "url": "https://github.com/buntas-tofu/SASchi-Go/blob/9b86f957941a2dca14a90e8504f7913759e7e269/examples/verify_counted_nested.py"
+    },
+    {
+      "id": "put-mixed-numeric",
+      "class": "PUT output",
+      "kind": "fixture",
+      "path": "examples/verify_put_mixed_numeric.py",
+      "sha256": "deaa7f7b3329f7d4177cda5736a62cc4eda584bc4ce7d01f559b667f217458fa",
+      "url": "https://github.com/buntas-tofu/SASchi-Go/blob/9b86f957941a2dca14a90e8504f7913759e7e269/examples/verify_put_mixed_numeric.py"
+    }
+  ],
+  "suites": [
+    {
+      "id": "suite-parser",
+      "module": "saschi.test_parser",
+      "class": "Parser, rules and execution infrastructure",
+      "tests": 20,
+      "skips": 0,
+      "kind": "suite",
+      "path": "saschi/test_parser.py",
+      "sha256": "bc665addb8a63ab70d6615336fd2b04faa116811aafb82db1b48d1fbb58d4d2d",
+      "url": "https://github.com/buntas-tofu/SASchi-Go/blob/9b86f957941a2dca14a90e8504f7913759e7e269/saschi/test_parser.py"
+    },
+    {
+      "id": "suite-rules",
+      "module": "saschi.test_rules",
+      "class": "Parser, rules and execution infrastructure",
+      "tests": 28,
+      "skips": 0,
+      "kind": "suite",
+      "path": "saschi/test_rules.py",
+      "sha256": "923905a1bd836474e8b0f69957a0254e6e366b3b295ea86a060756d8dfe10702",
+      "url": "https://github.com/buntas-tofu/SASchi-Go/blob/9b86f957941a2dca14a90e8504f7913759e7e269/saschi/test_rules.py"
+    },
+    {
+      "id": "suite-emitter",
+      "module": "saschi.test_emit_py",
+      "class": "Parser, rules and execution infrastructure",
+      "tests": 19,
+      "skips": 0,
+      "kind": "suite",
+      "path": "saschi/test_emit_py.py",
+      "sha256": "2cdc7e334bd1f6ae97a134dc97778c797118bb7abeb13775d4839d612e58de8d",
+      "url": "https://github.com/buntas-tofu/SASchi-Go/blob/9b86f957941a2dca14a90e8504f7913759e7e269/saschi/test_emit_py.py"
+    },
+    {
+      "id": "suite-rulebook",
+      "module": "saschi.test_rulebook",
+      "class": "Parser, rules and execution infrastructure",
+      "tests": 8,
+      "skips": 0,
+      "kind": "suite",
+      "path": "saschi/test_rulebook.py",
+      "sha256": "dbda3a656faa980d95b7d3142cd241423e3ff66ebc40b3219f1024478a48bad9",
+      "url": "https://github.com/buntas-tofu/SASchi-Go/blob/9b86f957941a2dca14a90e8504f7913759e7e269/saschi/test_rulebook.py"
+    },
+    {
+      "id": "suite-plan",
+      "module": "saschi.test_plan",
+      "class": "Parser, rules and execution infrastructure",
+      "tests": 26,
+      "skips": 0,
+      "kind": "suite",
+      "path": "saschi/test_plan.py",
+      "sha256": "4c3eff7f0e6f7fc152368d8396e120855378eb9804381a6a83b8d94f11719241",
+      "url": "https://github.com/buntas-tofu/SASchi-Go/blob/9b86f957941a2dca14a90e8504f7913759e7e269/saschi/test_plan.py"
+    },
+    {
+      "id": "suite-cpp",
+      "module": "saschi.test_cpp",
+      "class": "Parser, rules and execution infrastructure",
+      "tests": 2,
+      "skips": 0,
+      "kind": "suite",
+      "path": "saschi/test_cpp.py",
+      "sha256": "c54cd704e4d9e12dc1d792b3262f77a3172fcd56f5f1e04a283ea64468bce8b3",
+      "url": "https://github.com/buntas-tofu/SASchi-Go/blob/9b86f957941a2dca14a90e8504f7913759e7e269/saschi/test_cpp.py"
+    },
+    {
+      "id": "suite-operations",
+      "module": "saschi.test_operations",
+      "class": "Parser, rules and execution infrastructure",
+      "tests": 12,
+      "skips": 0,
+      "kind": "suite",
+      "path": "saschi/test_operations.py",
+      "sha256": "1d3cd52b15cbf67234c813cd95eeff17734a6bc35a18af047b24caf75db34a77",
+      "url": "https://github.com/buntas-tofu/SASchi-Go/blob/9b86f957941a2dca14a90e8504f7913759e7e269/saschi/test_operations.py"
+    },
+    {
+      "id": "suite-comparison",
+      "module": "saschi.test_compare",
+      "class": "Parser, rules and execution infrastructure",
+      "tests": 5,
+      "skips": 0,
+      "kind": "suite",
+      "path": "saschi/test_compare.py",
+      "sha256": "a801b142fba337971d6f3db03f53748a34c7f1cd6aa9f77aa41bf7bc90fb8337",
+      "url": "https://github.com/buntas-tofu/SASchi-Go/blob/9b86f957941a2dca14a90e8504f7913759e7e269/saschi/test_compare.py"
+    },
+    {
+      "id": "suite-events",
+      "module": "saschi.test_events",
+      "class": "Data, state and metadata",
+      "tests": 14,
+      "skips": 0,
+      "kind": "suite",
+      "path": "saschi/test_events.py",
+      "sha256": "da1e98031b69e29494221d6dddad61cd58707a573498d0a3e7adc612cc136608",
+      "url": "https://github.com/buntas-tofu/SASchi-Go/blob/9b86f957941a2dca14a90e8504f7913759e7e269/saschi/test_events.py"
+    },
+    {
+      "id": "suite-metadata",
+      "module": "saschi.test_metadata",
+      "class": "Data, state and metadata",
+      "tests": 14,
+      "skips": 0,
+      "kind": "suite",
+      "path": "saschi/test_metadata.py",
+      "sha256": "e51e1f1329e27c05d457234837a34a44c7d7b772ff244ab9aca7d7d2acd0f2fa",
+      "url": "https://github.com/buntas-tofu/SASchi-Go/blob/9b86f957941a2dca14a90e8504f7913759e7e269/saschi/test_metadata.py"
+    },
+    {
+      "id": "suite-functions",
+      "module": "saschi.test_functions",
+      "class": "Functions and application surfaces",
+      "tests": 38,
+      "skips": 0,
+      "kind": "suite",
+      "path": "saschi/test_functions.py",
+      "sha256": "e5cfc9c108d2bab52c6d2b7c413c10d937d0458b5f505ec59f3c5cb447d47dd2",
+      "url": "https://github.com/buntas-tofu/SASchi-Go/blob/9b86f957941a2dca14a90e8504f7913759e7e269/saschi/test_functions.py"
+    },
+    {
+      "id": "suite-job",
+      "module": "saschi.test_job",
+      "class": "Functions and application surfaces",
+      "tests": 11,
+      "skips": 0,
+      "kind": "suite",
+      "path": "saschi/test_job.py",
+      "sha256": "2e8eb9d730dccbc32706b6f05f3a2ffb994f3ed5e4523588d390a5449268454e",
+      "url": "https://github.com/buntas-tofu/SASchi-Go/blob/9b86f957941a2dca14a90e8504f7913759e7e269/saschi/test_job.py"
+    },
+    {
+      "id": "suite-catalog",
+      "module": "saschi.test_catalog",
+      "class": "Functions and application surfaces",
+      "tests": 10,
+      "skips": 0,
+      "kind": "suite",
+      "path": "saschi/test_catalog.py",
+      "sha256": "ce5acf1f184cb798a5be49c9678b176b52750f4fdf9989d26aeda8d1b14ced74",
+      "url": "https://github.com/buntas-tofu/SASchi-Go/blob/9b86f957941a2dca14a90e8504f7913759e7e269/saschi/test_catalog.py"
+    },
+    {
+      "id": "suite-showcase",
+      "module": "saschi.test_showcase",
+      "class": "Functions and application surfaces",
+      "tests": 4,
+      "skips": 0,
+      "kind": "suite",
+      "path": "saschi/test_showcase.py",
+      "sha256": "49e6b1efbba1328da955d3c3f3afd43a1a0ab217fcea6601aab128f265597df8",
+      "url": "https://github.com/buntas-tofu/SASchi-Go/blob/9b86f957941a2dca14a90e8504f7913759e7e269/saschi/test_showcase.py"
+    },
+    {
+      "id": "suite-assistant",
+      "module": "saschi.test_assistant",
+      "class": "Functions and application surfaces",
+      "tests": 5,
+      "skips": 0,
+      "kind": "suite",
+      "path": "saschi/test_assistant.py",
+      "sha256": "43bcef72afe5c2a2fc45c4d44f02ee061154921f45c75a50a02ff4e3b22fab8f",
+      "url": "https://github.com/buntas-tofu/SASchi-Go/blob/9b86f957941a2dca14a90e8504f7913759e7e269/saschi/test_assistant.py"
+    },
+    {
+      "id": "suite-web",
+      "module": "saschi.test_web",
+      "class": "Functions and application surfaces",
+      "tests": 10,
+      "skips": 0,
+      "kind": "suite",
+      "path": "saschi/test_web.py",
+      "sha256": "1b4ff1b6c3cdf3c8b58042569d10e39112048026a74e44d98b1e8a70ab721e02",
+      "url": "https://github.com/buntas-tofu/SASchi-Go/blob/9b86f957941a2dca14a90e8504f7913759e7e269/saschi/test_web.py"
+    },
+    {
+      "id": "suite-put",
+      "module": "saschi.test_put",
+      "class": "PUT output",
+      "tests": 13,
+      "skips": 0,
+      "kind": "suite",
+      "path": "saschi/test_put.py",
+      "sha256": "8485452ac187f5eca4a1b59e137ac34901ca30d4e4ce2693541a85c411de79c8",
+      "url": "https://github.com/buntas-tofu/SASchi-Go/blob/9b86f957941a2dca14a90e8504f7913759e7e269/saschi/test_put.py"
+    },
+    {
+      "id": "suite-put-list",
+      "module": "saschi.test_put_list",
+      "class": "PUT output",
+      "tests": 28,
+      "skips": 0,
+      "kind": "suite",
+      "path": "saschi/test_put_list.py",
+      "sha256": "f10f3b37a0c96d3d32da4d910f75812610f073e7b64bcb53d3735b8b85b8ce04",
+      "url": "https://github.com/buntas-tofu/SASchi-Go/blob/9b86f957941a2dca14a90e8504f7913759e7e269/saschi/test_put_list.py"
+    },
+    {
+      "id": "suite-put-all",
+      "module": "saschi.test_put_all",
+      "class": "PUT output",
+      "tests": 16,
+      "skips": 0,
+      "kind": "suite",
+      "path": "saschi/test_put_all.py",
+      "sha256": "e3558fe952e0e94d176a013264e87bcd814c749a89aa65f4e86c69259cf69602",
+      "url": "https://github.com/buntas-tofu/SASchi-Go/blob/9b86f957941a2dca14a90e8504f7913759e7e269/saschi/test_put_all.py"
+    },
+    {
+      "id": "suite-do-counted",
+      "module": "saschi.test_do_counted",
+      "class": "Loops and scheduling",
+      "tests": 27,
+      "skips": 0,
+      "kind": "suite",
+      "path": "saschi/test_do_counted.py",
+      "sha256": "f8ebd76a1f9faf6af3e5f66a4ffe297592aebfdad49d44f91fda998d46aa3a7f",
+      "url": "https://github.com/buntas-tofu/SASchi-Go/blob/9b86f957941a2dca14a90e8504f7913759e7e269/saschi/test_do_counted.py"
+    },
+    {
+      "id": "suite-put-numeric",
+      "module": "saschi.test_put_numeric",
+      "class": "PUT output",
+      "tests": 23,
+      "skips": 0,
+      "kind": "suite",
+      "path": "saschi/test_put_numeric.py",
+      "sha256": "13bc59d722d3132d5aedbb3269804b67bf50417ded999711ce9c13e6ee430be7",
+      "url": "https://github.com/buntas-tofu/SASchi-Go/blob/9b86f957941a2dca14a90e8504f7913759e7e269/saschi/test_put_numeric.py"
+    },
+    {
+      "id": "suite-do-put",
+      "module": "saschi.test_do_put",
+      "class": "Loops and scheduling",
+      "tests": 6,
+      "skips": 0,
+      "kind": "suite",
+      "path": "saschi/test_do_put.py",
+      "sha256": "a2b1a7108213869299001db81cb9f3642a43a3e0ccae19e4d5dd0db6b84aa638",
+      "url": "https://github.com/buntas-tofu/SASchi-Go/blob/9b86f957941a2dca14a90e8504f7913759e7e269/saschi/test_do_put.py"
+    },
+    {
+      "id": "suite-length-reverse",
+      "module": "saschi.test_length_reverse",
+      "class": "Strings and composition",
+      "tests": 23,
+      "skips": 0,
+      "kind": "suite",
+      "path": "saschi/test_length_reverse.py",
+      "sha256": "01027a21c5eedddb5107a583315a94e8a71570e9e0b23e3ae7ee4a2bf04ebb43",
+      "url": "https://github.com/buntas-tofu/SASchi-Go/blob/9b86f957941a2dca14a90e8504f7913759e7e269/saschi/test_length_reverse.py"
+    },
+    {
+      "id": "suite-concat-catx",
+      "module": "saschi.test_concat_catx",
+      "class": "Strings and composition",
+      "tests": 21,
+      "skips": 0,
+      "kind": "suite",
+      "path": "saschi/test_concat_catx.py",
+      "sha256": "d4d35a5f6ad9b240032b6bcc6c28ca14d0cf2f709eb94a52ad31d13fed3939b1",
+      "url": "https://github.com/buntas-tofu/SASchi-Go/blob/9b86f957941a2dca14a90e8504f7913759e7e269/saschi/test_concat_catx.py"
+    },
+    {
+      "id": "suite-string-composition",
+      "module": "saschi.test_string_composition",
+      "class": "Strings and composition",
+      "tests": 9,
+      "skips": 0,
+      "kind": "suite",
+      "path": "saschi/test_string_composition.py",
+      "sha256": "144e2555f508dabd42ed226fc6a9b6febffd771930fdf853d910ddb5f524ef51",
+      "url": "https://github.com/buntas-tofu/SASchi-Go/blob/9b86f957941a2dca14a90e8504f7913759e7e269/saschi/test_string_composition.py"
+    },
+    {
+      "id": "suite-substr",
+      "module": "saschi.test_substr",
+      "class": "Strings and composition",
+      "tests": 16,
+      "skips": 0,
+      "kind": "suite",
+      "path": "saschi/test_substr.py",
+      "sha256": "32e8c5b09fe19c27f4cc835f25979a33fd0a534791ab0a54159ceb099b3df695",
+      "url": "https://github.com/buntas-tofu/SASchi-Go/blob/9b86f957941a2dca14a90e8504f7913759e7e269/saschi/test_substr.py"
+    },
+    {
+      "id": "suite-substr-compositions",
+      "module": "saschi.test_substr_compositions",
+      "class": "Strings and composition",
+      "tests": 20,
+      "skips": 0,
+      "kind": "suite",
+      "path": "saschi/test_substr_compositions.py",
+      "sha256": "4b661fe3a3b9830bbb63daf529119cc18be7007eb811d157ba81ce2da8d36be5",
+      "url": "https://github.com/buntas-tofu/SASchi-Go/blob/9b86f957941a2dca14a90e8504f7913759e7e269/saschi/test_substr_compositions.py"
+    },
+    {
+      "id": "suite-do-if",
+      "module": "saschi.test_do_if",
+      "class": "Loops and scheduling",
+      "tests": 23,
+      "skips": 0,
+      "kind": "suite",
+      "path": "saschi/test_do_if.py",
+      "sha256": "b65da2205e98dadea1dc40bc03d9f8232217fd2c7b4f9c84f70c20e618e34674",
+      "url": "https://github.com/buntas-tofu/SASchi-Go/blob/9b86f957941a2dca14a90e8504f7913759e7e269/saschi/test_do_if.py"
+    },
+    {
+      "id": "suite-bitwise",
+      "module": "saschi.test_bitwise",
+      "class": "Numeric, bitwise and calendar",
+      "tests": 24,
+      "skips": 0,
+      "kind": "suite",
+      "path": "saschi/test_bitwise.py",
+      "sha256": "316f0a5726018583f432a11f758001c764f08a8e55aff894f463489cc59c738c",
+      "url": "https://github.com/buntas-tofu/SASchi-Go/blob/9b86f957941a2dca14a90e8504f7913759e7e269/saschi/test_bitwise.py"
+    },
+    {
+      "id": "suite-lag-execution",
+      "module": "saschi.test_lag_execution",
+      "class": "Data, state and metadata",
+      "tests": 26,
+      "skips": 0,
+      "kind": "suite",
+      "path": "saschi/test_lag_execution.py",
+      "sha256": "bdab3d6f28226f74b2ca0252fd5bd4e999a8862004ace605de9fac53f1a11837",
+      "url": "https://github.com/buntas-tofu/SASchi-Go/blob/9b86f957941a2dca14a90e8504f7913759e7e269/saschi/test_lag_execution.py"
+    },
+    {
+      "id": "suite-calendar",
+      "module": "saschi.test_calendar",
+      "class": "Numeric, bitwise and calendar",
+      "tests": 20,
+      "skips": 0,
+      "kind": "suite",
+      "path": "saschi/test_calendar.py",
+      "sha256": "ab6f6a9534bc08ab967068ea7aca534773e80125022051a8a041344d150f1a06",
+      "url": "https://github.com/buntas-tofu/SASchi-Go/blob/9b86f957941a2dca14a90e8504f7913759e7e269/saschi/test_calendar.py"
+    },
+    {
+      "id": "suite-sum-statement",
+      "module": "saschi.test_sum_statement",
+      "class": "Loops and scheduling",
+      "tests": 20,
+      "skips": 0,
+      "kind": "suite",
+      "path": "saschi/test_sum_statement.py",
+      "sha256": "f2468321e8e077307d9e1ab3b3ff2a8c906b3b985bf2e2d7f2b464462a125af8",
+      "url": "https://github.com/buntas-tofu/SASchi-Go/blob/9b86f957941a2dca14a90e8504f7913759e7e269/saschi/test_sum_statement.py"
+    },
+    {
+      "id": "suite-do-until",
+      "module": "saschi.test_do_until",
+      "class": "Loops and scheduling",
+      "tests": 20,
+      "skips": 0,
+      "kind": "suite",
+      "path": "saschi/test_do_until.py",
+      "sha256": "4bee147a26589b8f82c07367bfd25e6ec2f2525a4ad75a4379474ed9aa8dcac8",
+      "url": "https://github.com/buntas-tofu/SASchi-Go/blob/9b86f957941a2dca14a90e8504f7913759e7e269/saschi/test_do_until.py"
+    },
+    {
+      "id": "suite-division",
+      "module": "saschi.test_division",
+      "class": "Numeric, bitwise and calendar",
+      "tests": 16,
+      "skips": 0,
+      "kind": "suite",
+      "path": "saschi/test_division.py",
+      "sha256": "87f1d20da2a71dd3ea1037ac009919ca3147cfac41412009894a992932d08d10",
+      "url": "https://github.com/buntas-tofu/SASchi-Go/blob/9b86f957941a2dca14a90e8504f7913759e7e269/saschi/test_division.py"
+    },
+    {
+      "id": "suite-int",
+      "module": "saschi.test_int",
+      "class": "Numeric, bitwise and calendar",
+      "tests": 14,
+      "skips": 0,
+      "kind": "suite",
+      "path": "saschi/test_int.py",
+      "sha256": "f75958769d0028c67a590f8b8b2abd0db5685ad738aea4fbe38e3e3dbaa7b4c2",
+      "url": "https://github.com/buntas-tofu/SASchi-Go/blob/9b86f957941a2dca14a90e8504f7913759e7e269/saschi/test_int.py"
+    },
+    {
+      "id": "suite-do-while",
+      "module": "saschi.test_do_while",
+      "class": "Loops and scheduling",
+      "tests": 20,
+      "skips": 0,
+      "kind": "suite",
+      "path": "saschi/test_do_while.py",
+      "sha256": "9994cf71871df957500b734fa30d1f262a60bf1699421a9f8c0446945d1aa5e3",
+      "url": "https://github.com/buntas-tofu/SASchi-Go/blob/9b86f957941a2dca14a90e8504f7913759e7e269/saschi/test_do_while.py"
+    },
+    {
+      "id": "suite-numeric-arrays",
+      "module": "saschi.test_numeric_arrays",
+      "class": "Numeric arrays",
+      "tests": 42,
+      "skips": 0,
+      "kind": "suite",
+      "path": "saschi/test_numeric_arrays.py",
+      "sha256": "59a0fe74f678c007360953333812ba78798865b86e93254a38314cda11ee9be1",
+      "url": "https://github.com/buntas-tofu/SASchi-Go/blob/9b86f957941a2dca14a90e8504f7913759e7e269/saschi/test_numeric_arrays.py"
+    },
+    {
+      "id": "suite-do-over",
+      "module": "saschi.test_do_over",
+      "class": "Loops and scheduling",
+      "tests": 33,
+      "skips": 0,
+      "kind": "suite",
+      "path": "saschi/test_do_over.py",
+      "sha256": "fcd012493d28d83002fde829c1c9b7ca6b90b2ce58082351d28bfc7083ba8779",
+      "url": "https://github.com/buntas-tofu/SASchi-Go/blob/9b86f957941a2dca14a90e8504f7913759e7e269/saschi/test_do_over.py"
+    },
+    {
+      "id": "suite-counted-nested",
+      "module": "saschi.test_counted_nested",
+      "class": "Loops and scheduling",
+      "tests": 39,
+      "skips": 0,
+      "kind": "suite",
+      "path": "saschi/test_counted_nested.py",
+      "sha256": "16d8bbaa21c6820759069ec94c924837d0ed5a1381760e8dc94c911370a61315",
+      "url": "https://github.com/buntas-tofu/SASchi-Go/blob/9b86f957941a2dca14a90e8504f7913759e7e269/saschi/test_counted_nested.py"
+    },
+    {
+      "id": "suite-put-mixed-numeric",
+      "module": "saschi.test_put_mixed_numeric",
+      "class": "PUT output",
+      "tests": 30,
+      "skips": 0,
+      "kind": "suite",
+      "path": "saschi/test_put_mixed_numeric.py",
+      "sha256": "d71a98693d391092c8b0b84966d311e6a3591ddfbc4293c7f78ba851705912e1",
+      "url": "https://github.com/buntas-tofu/SASchi-Go/blob/9b86f957941a2dca14a90e8504f7913759e7e269/saschi/test_put_mixed_numeric.py"
+    }
+  ],
+  "separate_checks": {
+    "synthesis_faithful": 60,
+    "synthesis_naive_caught": 60,
+    "two_1k_workloads": 39,
+    "whole_program_proofs": 11
+  }
+}

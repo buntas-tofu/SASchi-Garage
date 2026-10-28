@@ -213,12 +213,21 @@
           "source_url": "https://support.sas.com/documentation/cdl/en/lrdict/64316/HTML/default/a000214163.htm",
           "source_rev": "SAS 9.2 statement reference; consulted 2026-09-15; mutable URL unless versioned",
           "coverage_evidence": {
-            "map": "research/GO_EVIDENCE_20261027.json",
+            "map": "research/GO_EVIDENCE_20261028.json",
             "card_id": "SL-003",
-            "as_of": "2026-10-27",
-            "go_commit": "dc32d355b1ca27085970ff0e651df8d6b0726bcc",
+            "as_of": "2026-10-28",
+            "go_commit": "9b86f957941a2dca14a90e8504f7913759e7e269",
             "level": "BOUNDED_SOURCE_AND_BASE_R"
-          }
+          },
+          "coverage_evidence_history": [
+            {
+              "map": "research/GO_EVIDENCE_20261027.json",
+              "card_id": "SL-003",
+              "as_of": "2026-10-27",
+              "go_commit": "dc32d355b1ca27085970ff0e651df8d6b0726bcc",
+              "level": "BOUNDED_SOURCE_AND_BASE_R"
+            }
+          ]
         },
         {
           "id": "SL-004",
@@ -226,12 +235,21 @@
           "source_url": "https://support.sas.com/documentation/cdl/en/lestmtsref/63323/HTML/default/n1xbr9r0s9veq0n137iftzxq4g7e.htm",
           "source_rev": "SAS 9.3 statement reference; consulted 2026-09-15; mutable URL unless versioned",
           "coverage_evidence": {
-            "map": "research/GO_EVIDENCE_20261027.json",
+            "map": "research/GO_EVIDENCE_20261028.json",
             "card_id": "SL-004",
-            "as_of": "2026-10-27",
-            "go_commit": "dc32d355b1ca27085970ff0e651df8d6b0726bcc",
+            "as_of": "2026-10-28",
+            "go_commit": "9b86f957941a2dca14a90e8504f7913759e7e269",
             "level": "BOUNDED_SOURCE_AND_BASE_R"
-          }
+          },
+          "coverage_evidence_history": [
+            {
+              "map": "research/GO_EVIDENCE_20261027.json",
+              "card_id": "SL-004",
+              "as_of": "2026-10-27",
+              "go_commit": "dc32d355b1ca27085970ff0e651df8d6b0726bcc",
+              "level": "BOUNDED_SOURCE_AND_BASE_R"
+            }
+          ]
         },
         {
           "id": "SL-005",
@@ -239,12 +257,21 @@
           "source_url": "https://support.sas.com/documentation/cdl/en/lestmtsref/63323/HTML/default/n1lltvbis7ye1an1eryo4leh2mck.htm",
           "source_rev": "SAS 9.3 statement reference; consulted 2026-09-15; mutable URL unless versioned",
           "coverage_evidence": {
-            "map": "research/GO_EVIDENCE_20261027.json",
+            "map": "research/GO_EVIDENCE_20261028.json",
             "card_id": "SL-005",
-            "as_of": "2026-10-27",
-            "go_commit": "dc32d355b1ca27085970ff0e651df8d6b0726bcc",
+            "as_of": "2026-10-28",
+            "go_commit": "9b86f957941a2dca14a90e8504f7913759e7e269",
             "level": "BOUNDED_SOURCE_AND_BASE_R"
-          }
+          },
+          "coverage_evidence_history": [
+            {
+              "map": "research/GO_EVIDENCE_20261027.json",
+              "card_id": "SL-005",
+              "as_of": "2026-10-27",
+              "go_commit": "dc32d355b1ca27085970ff0e651df8d6b0726bcc",
+              "level": "BOUNDED_SOURCE_AND_BASE_R"
+            }
+          ]
         },
         {
           "id": "SL-006",
@@ -258,12 +285,21 @@
           "source_url": "https://support.sas.com/documentation/cdl/en/lefunctionsref/63354/HTML/default/n0l66p5oqex1f2n1quuopdvtcjqb.htm",
           "source_rev": "SAS 9.3 function reference; consulted 2026-09-15; mutable URL unless versioned",
           "coverage_evidence": {
-            "map": "research/GO_EVIDENCE_20261027.json",
+            "map": "research/GO_EVIDENCE_20261028.json",
             "card_id": "SL-007",
-            "as_of": "2026-10-27",
-            "go_commit": "dc32d355b1ca27085970ff0e651df8d6b0726bcc",
+            "as_of": "2026-10-28",
+            "go_commit": "9b86f957941a2dca14a90e8504f7913759e7e269",
             "level": "BOUNDED_SOURCE_AND_BASE_R"
-          }
+          },
+          "coverage_evidence_history": [
+            {
+              "map": "research/GO_EVIDENCE_20261027.json",
+              "card_id": "SL-007",
+              "as_of": "2026-10-27",
+              "go_commit": "dc32d355b1ca27085970ff0e651df8d6b0726bcc",
+              "level": "BOUNDED_SOURCE_AND_BASE_R"
+            }
+          ]
         },
         {
           "id": "SL-008",
@@ -355,12 +391,21 @@
           "source_url": "https://support.sas.com/documentation/cdl/en/lestmtsref/63323/HTML/default/p08do6szetrxe2n136ush727sbuo.htm",
           "source_rev": "SAS 9.3 statement reference; consulted 2026-09-15; mutable URL unless versioned",
           "coverage_evidence": {
-            "map": "research/GO_EVIDENCE_20261027.json",
+            "map": "research/GO_EVIDENCE_20261028.json",
             "card_id": "SL-022",
-            "as_of": "2026-10-27",
-            "go_commit": "dc32d355b1ca27085970ff0e651df8d6b0726bcc",
+            "as_of": "2026-10-28",
+            "go_commit": "9b86f957941a2dca14a90e8504f7913759e7e269",
             "level": "BOUNDED_SOURCE_AND_BASE_R"
-          }
+          },
+          "coverage_evidence_history": [
+            {
+              "map": "research/GO_EVIDENCE_20261027.json",
+              "card_id": "SL-022",
+              "as_of": "2026-10-27",
+              "go_commit": "dc32d355b1ca27085970ff0e651df8d6b0726bcc",
+              "level": "BOUNDED_SOURCE_AND_BASE_R"
+            }
+          ]
         },
         {
           "id": "SL-023",
@@ -384,6 +429,10 @@
     }
   ],
   "evidence_maps": [
+    "research/GO_EVIDENCE_20261028.json",
     "research/GO_EVIDENCE_20261027.json"
+  ],
+  "verification_inventories": [
+    "research/GO_VERIFICATION_20261028.json"
   ]
 }

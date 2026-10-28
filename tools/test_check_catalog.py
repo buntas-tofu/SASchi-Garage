@@ -24,6 +24,39 @@ class EvidenceMapTests(unittest.TestCase):
     def test_current_map_and_catalog(self):
         self.assertEqual(self.validate(), 5)
 
+    def test_historical_map_is_still_validated(self):
+        path = self.catalog['evidence_maps'][1]
+        data = json.loads((checker.ROOT/path).read_text())
+        self.assertEqual(checker.validate_evidence_map(data, self.catalog, path), 5)
+        for field in ('go_commit', 'as_of', 'level'):
+            catalog = deepcopy(self.catalog)
+            doc = next(d for c in catalog['collections'] for d in c['documents'] if d['id'] == 'SL-003')
+            doc['coverage_evidence_history'][0][field] = 'invalid'
+            with self.subTest(field=field), self.assertRaises((AssertionError, ValueError)):
+                checker.validate_evidence_map(data, catalog, path)
+
+    def test_duplicate_future_or_orphan_history_refuses(self):
+        original = next(d for c in self.catalog['collections'] for d in c['documents'] if d['id'] == 'SL-003')
+        for mutation in ('duplicate', 'future', 'orphan'):
+            doc = deepcopy(original)
+            if mutation == 'duplicate':
+                doc['coverage_evidence_history'].append(deepcopy(doc['coverage_evidence_history'][0]))
+            elif mutation == 'future':
+                doc['coverage_evidence_history'][0]['as_of'] = '2099-01-01'
+            else:
+                del doc['coverage_evidence']
+            with self.subTest(mutation=mutation), self.assertRaises(AssertionError):
+                checker.coverage_records(doc)
+
+    def test_source_anchor_is_an_ascii_python_test_name(self):
+        self.assertTrue(any('test_per_row_reset_N_and_input_index_descriptors' in e['source_tests']
+                            for c in self.evidence_map['cards'] for e in c['evidence']))
+        for value in ('test_bad name', 'test_name()', 'test_name/other', 'test_é'):
+            data = deepcopy(self.evidence_map)
+            data['cards'][0]['evidence'][0]['source_tests'].append(value)
+            with self.subTest(value=value), self.assertRaises(AssertionError):
+                self.validate(data)
+
     def test_invalid_reference_controls(self):
         mutations = {
             'unknown card': lambda m: m['cards'][0].update(card_id='SL-999'),

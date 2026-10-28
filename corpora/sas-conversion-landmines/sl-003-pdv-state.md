@@ -5,17 +5,17 @@ Evidence: published contract plus original witness design, not a live-SAS receip
 Coverage update: bounded Go repository/base-R witnesses, recorded at the pinned commit below; no live-SAS validation or card promotion.
 Scope: cited product/version only; target-runtime behavior must be checked.
 Priority: P0, an engineering judgment, not an observed frequency.
-Related rulebook entries: DS-006; program execution model.
-Coverage assessment (2026-10-27): Conditional initial SET, retained inputs and scratch reset have bounded source-execution evidence. General conditional SET and arbitrary whole-step composition remain unproven.
+Related rulebook entries: DS-006; DS-040/DS-041 reset composition; program execution model.
+Coverage assessment (2026-10-28): Conditional initial SET, retained inputs and scratch reset have bounded source-execution evidence. General conditional SET and arbitrary whole-step composition remain unproven.
 
 ## Pinned implementation evidence
 
 Status: repository/base-R evidence for principal/maintainer review, not live-SAS
-validation. The [dated evidence map](../../research/GO_EVIDENCE_20261027.json)
-pins Go `dc32d355b1ca27085970ff0e651df8d6b0726bcc` and DS-006 context.
-[The event gate](https://github.com/buntas-tofu/SASchi-Go/blob/dc32d355b1ca27085970ff0e651df8d6b0726bcc/examples/verify_events.py)
+validation. The [dated evidence map](../../research/GO_EVIDENCE_20261028.json)
+pins Go `9b86f957941a2dca14a90e8504f7913759e7e269` and DS-006 context.
+[The event gate](https://github.com/buntas-tofu/SASchi-Go/blob/9b86f957941a2dca14a90e8504f7913759e7e269/examples/verify_events.py)
 compares an original composed program and fixed output to independent base R.
-[The source suite](https://github.com/buntas-tofu/SASchi-Go/blob/dc32d355b1ca27085970ff0e651df8d6b0726bcc/saschi/test_events.py)
+[The source suite](https://github.com/buntas-tofu/SASchi-Go/blob/9b86f957941a2dca14a90e8504f7913759e7e269/saschi/test_events.py)
 checks a first-row lookup before driving SET, retained input writes, driving-input
 overwrites, empty inputs and scratch values of 17, missing, missing. Numeric
 RETAIN state also survives a later subsetting-IF rejection.
@@ -25,6 +25,16 @@ the driving SET. It does not admit general conditional SET, multiple lookup read
 SET concatenation/options or uninitialized RETAIN lists. This is SET evidence,
 not a proof of MERGE-input write behavior. The September witness below remains a
 historical design; related Go execution does not relabel its queue entry.
+
+DS-040 [DO OVER](https://github.com/buntas-tofu/SASchi-Go/blob/9b86f957941a2dca14a90e8504f7913759e7e269/docs/DO_OVER.md) adds current-element aliases and scratch
+row/run reset. DS-041 [counted loops](https://github.com/buntas-tofu/SASchi-Go/blob/9b86f957941a2dca14a90e8504f7913759e7e269/docs/COUNTED_LOOPS.md) separately checks
+per-row work state, input index descriptors and run isolation. These composition
+witnesses do not broaden the conditional SET contract described above.
+
+## Earlier snapshot
+
+The [October 27 map](../../research/GO_EVIDENCE_20261027.json) remains unchanged
+at Go `dc32d355b1ca27085970ff0e651df8d6b0726bcc`. It records the earlier evidence boundary.
 
 ## Failure mechanism
 

@@ -5,35 +5,44 @@ Evidence: published contract plus original witness design, not a live-SAS receip
 Coverage update: bounded Go repository/base-R witnesses, recorded at the pinned commit below; no live-SAS validation or card promotion.
 Scope: cited product/version only; target-runtime behavior must be checked.
 Priority: P0, an engineering judgment, not an observed frequency.
-Related rulebook entries: DS-007.
-Coverage assessment (2026-10-27): DS-007 now has bounded direct-assignment source execution, independent per-occurrence queues, conditional and counted DO schedules, numeric depths 1 through 100 and step/run reset evidence. Broader consumers remain deferred.
+Related rulebook entries: DS-007; DS-041 exclusion boundary.
+Coverage assessment (2026-10-28): DS-007 now has bounded direct-assignment source execution, independent per-occurrence queues, conditional and legacy single-level literal counted DO schedules, numeric depths 1 through 100 and step/run reset evidence. Broader consumers remain deferred.
 
 ## Pinned implementation evidence
 
 Status: repository/base-R evidence for principal/maintainer review, not live-SAS
-validation. The [dated evidence map](../../research/GO_EVIDENCE_20261027.json)
-pins Go `dc32d355b1ca27085970ff0e651df8d6b0726bcc` and DS-007.
-[The execution gate](https://github.com/buntas-tofu/SASchi-Go/blob/dc32d355b1ca27085970ff0e651df8d6b0726bcc/examples/verify_lag_execution.py)
+validation. The [dated evidence map](../../research/GO_EVIDENCE_20261028.json)
+pins Go `9b86f957941a2dca14a90e8504f7913759e7e269` and DS-007.
+[The execution gate](https://github.com/buntas-tofu/SASchi-Go/blob/9b86f957941a2dca14a90e8504f7913759e7e269/examples/verify_lag_execution.py)
 compares four pins and 300 constructed runtime cases against an independent R
 prior-invocation model, across depths 1 through 100. Existing raw reference queue
 fixtures remain separate evidence. Conditional calls on rows two and four return
 missing then 20; unconditional calls whose results are used conditionally follow
 a different schedule. Ordinary missing arguments still enter the queue.
 
-[The source suite](https://github.com/buntas-tofu/SASchi-Go/blob/dc32d355b1ca27085970ff0e651df8d6b0726bcc/saschi/test_lag_execution.py)
+[The source suite](https://github.com/buntas-tofu/SASchi-Go/blob/9b86f957941a2dca14a90e8504f7913759e7e269/saschi/test_lag_execution.py)
 checks structural occurrence identity, including identical calls, IF/ELSE leaves
 and counted-loop trips. Queues persist across input rows/trips, reset per DATA
 step and run, survive BY boundaries, and do not advance merely on OUTPUT.
 WHERE and subsetting IF retain their timing around invocations.
 
 The profile admits numeric LAG/DIF or LAG1 through LAG100/DIF1 through DIF100 as
-direct assignment RHS calls, including bounded IF/ELSE and counted-DO leaves.
+direct assignment RHS calls, including bounded IF/ELSE and legacy DS-026 counted-DO leaves.
 Arguments are finite numeric or ordinary missing literals, numeric variables or
 _N_. Character/tagged/nonfinite arguments, expressions, nested or arithmetic
-consumers, queue calls in predicates/WHERE, arrays, PUT_ALL, C++ and UNTIL/WHILE
+consumers, queue calls in predicates/WHERE, arrays, PUT_ALL, C++ and UNTIL/WHILE/OVER
 queue scheduling remain deferred. Depth limits and atomic refusals are tool
 policies, not SAS limits or diagnostic emulation. The September queue remains
 DESIGN_ONLY_NOT_RUN; independent review and live-SAS traces remain outstanding.
+
+The [DS-041 nested/computed profile](https://github.com/buntas-tofu/SASchi-Go/blob/9b86f957941a2dca14a90e8504f7913759e7e269/docs/COUNTED_LOOPS.md) explicitly
+refuses LAG/DIF in its bodies. Existing counted-loop queue evidence belongs to
+single-level literal DS-026 loops; it does not authorize nested queue scheduling.
+
+## Earlier snapshot
+
+The [October 27 map](../../research/GO_EVIDENCE_20261027.json) remains unchanged
+at Go `dc32d355b1ca27085970ff0e651df8d6b0726bcc`. It records the earlier evidence boundary.
 
 ## Failure mechanism
 

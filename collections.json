@@ -211,19 +211,40 @@
           "id": "SL-003",
           "path": "corpora/sas-conversion-landmines/sl-003-pdv-state.md",
           "source_url": "https://support.sas.com/documentation/cdl/en/lrdict/64316/HTML/default/a000214163.htm",
-          "source_rev": "SAS 9.2 statement reference; consulted 2026-09-15; mutable URL unless versioned"
+          "source_rev": "SAS 9.2 statement reference; consulted 2026-09-15; mutable URL unless versioned",
+          "coverage_evidence": {
+            "map": "research/GO_EVIDENCE_20261027.json",
+            "card_id": "SL-003",
+            "as_of": "2026-10-27",
+            "go_commit": "dc32d355b1ca27085970ff0e651df8d6b0726bcc",
+            "level": "BOUNDED_SOURCE_AND_BASE_R"
+          }
         },
         {
           "id": "SL-004",
           "path": "corpora/sas-conversion-landmines/sl-004-where-if.md",
           "source_url": "https://support.sas.com/documentation/cdl/en/lestmtsref/63323/HTML/default/n1xbr9r0s9veq0n137iftzxq4g7e.htm",
-          "source_rev": "SAS 9.3 statement reference; consulted 2026-09-15; mutable URL unless versioned"
+          "source_rev": "SAS 9.3 statement reference; consulted 2026-09-15; mutable URL unless versioned",
+          "coverage_evidence": {
+            "map": "research/GO_EVIDENCE_20261027.json",
+            "card_id": "SL-004",
+            "as_of": "2026-10-27",
+            "go_commit": "dc32d355b1ca27085970ff0e651df8d6b0726bcc",
+            "level": "BOUNDED_SOURCE_AND_BASE_R"
+          }
         },
         {
           "id": "SL-005",
           "path": "corpora/sas-conversion-landmines/sl-005-explicit-output.md",
           "source_url": "https://support.sas.com/documentation/cdl/en/lestmtsref/63323/HTML/default/n1lltvbis7ye1an1eryo4leh2mck.htm",
-          "source_rev": "SAS 9.3 statement reference; consulted 2026-09-15; mutable URL unless versioned"
+          "source_rev": "SAS 9.3 statement reference; consulted 2026-09-15; mutable URL unless versioned",
+          "coverage_evidence": {
+            "map": "research/GO_EVIDENCE_20261027.json",
+            "card_id": "SL-005",
+            "as_of": "2026-10-27",
+            "go_commit": "dc32d355b1ca27085970ff0e651df8d6b0726bcc",
+            "level": "BOUNDED_SOURCE_AND_BASE_R"
+          }
         },
         {
           "id": "SL-006",
@@ -235,7 +256,14 @@
           "id": "SL-007",
           "path": "corpora/sas-conversion-landmines/sl-007-lag-history.md",
           "source_url": "https://support.sas.com/documentation/cdl/en/lefunctionsref/63354/HTML/default/n0l66p5oqex1f2n1quuopdvtcjqb.htm",
-          "source_rev": "SAS 9.3 function reference; consulted 2026-09-15; mutable URL unless versioned"
+          "source_rev": "SAS 9.3 function reference; consulted 2026-09-15; mutable URL unless versioned",
+          "coverage_evidence": {
+            "map": "research/GO_EVIDENCE_20261027.json",
+            "card_id": "SL-007",
+            "as_of": "2026-10-27",
+            "go_commit": "dc32d355b1ca27085970ff0e651df8d6b0726bcc",
+            "level": "BOUNDED_SOURCE_AND_BASE_R"
+          }
         },
         {
           "id": "SL-008",
@@ -325,7 +353,14 @@
           "id": "SL-022",
           "path": "corpora/sas-conversion-landmines/sl-022-array-aliasing.md",
           "source_url": "https://support.sas.com/documentation/cdl/en/lestmtsref/63323/HTML/default/p08do6szetrxe2n136ush727sbuo.htm",
-          "source_rev": "SAS 9.3 statement reference; consulted 2026-09-15; mutable URL unless versioned"
+          "source_rev": "SAS 9.3 statement reference; consulted 2026-09-15; mutable URL unless versioned",
+          "coverage_evidence": {
+            "map": "research/GO_EVIDENCE_20261027.json",
+            "card_id": "SL-022",
+            "as_of": "2026-10-27",
+            "go_commit": "dc32d355b1ca27085970ff0e651df8d6b0726bcc",
+            "level": "BOUNDED_SOURCE_AND_BASE_R"
+          }
         },
         {
           "id": "SL-023",
@@ -347,5 +382,8 @@
         }
       ]
     }
+  ],
+  "evidence_maps": [
+    "research/GO_EVIDENCE_20261027.json"
   ]
 }

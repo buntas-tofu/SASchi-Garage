@@ -22,6 +22,18 @@ Read the [SAS research synthesis](research/SAS_REBUILD_RESEARCH_20260915.md),
 The [research source register](research/SOURCES_20260915.json) records 43 sources;
 the macro collection has its own [source register](corpora/macro-landmines/SOURCES.md).
 
+The [October 27 Go evidence map](research/GO_EVIDENCE_20261027.json) connects
+SL-003, SL-004, SL-005, SL-007 and SL-022 to exact public gate/source links at
+Go commit `dc32d355b1ca27085970ff0e651df8d6b0726bcc`, with content hashes,
+rule IDs, covered behavior and remaining gaps. Status: bounded repository/base-R
+evidence for principal/maintainer review, not live-SAS validation or collection
+promotion. Recorded acceptance is not a new full verification run. DO OVER was
+deferred at that snapshot; newer Go work is outside this map.
+
+This focused coverage refresh is not a full source re-review or a finding that
+the underlying September research is obsolete. The dated research queue remains
+`DESIGN_ONLY_NOT_RUN`, and the import manifest remains a historical record.
+
 ## The family
 
 - [SASchi-Go](https://github.com/buntas-tofu/SASchi-Go) owns the translator,
@@ -49,6 +61,20 @@ python3 tools/check_catalog.py
 The validator uses Python 3.11+ and the standard library. It checks inventory,
 IDs, evidence metadata, local links, and import records. It does not execute SAS
 or certify the factual accuracy of a cited claim.
+
+It also validates evidence-map references, pinned URLs, dates, evidence levels
+and catalog/card consistency without a network or sibling checkout. To resolve
+every mapped Go path, content hash, rule ID and named source test against the
+immutable Git snapshot, use a read-only local Go repository:
+
+```sh
+python3 tools/check_catalog.py --go-repository ../saschi-go
+python3 -m unittest discover -s tools -p 'test_check_catalog.py'
+```
+
+These checks validate the evidence map, not Go execution. Negative controls
+exercise invalid references and prevent historical designs or collection status
+from being promoted through the map.
 
 Pin a full Git commit when building a retrieval corpus. Keep each card whole and
 preserve its status and references. All current cards are asserted/unreviewed.

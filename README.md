@@ -76,6 +76,25 @@ These checks validate the evidence map, not Go execution. Negative controls
 exercise invalid references and prevent historical designs or collection status
 from being promoted through the map.
 
+[Garage CI](.github/workflows/catalog.yml) runs the catalog checker, all validator
+tests and artifact-style checks on pushes and pull requests, using Python 3.11
+and the standard library. Its actions are pinned to commits. CI checks Garage
+without fetching a sibling repository or running Go or SAS. A passing result
+does not promote the collections or establish semantic equivalence.
+
+Run the same checks locally:
+
+```sh
+python3 tools/check_catalog.py
+python3 -m unittest discover -s tools -p 'test_*.py' -v
+python3 tools/check_artifact_style.py
+```
+
+The style checker covers tracked Markdown, JSON, CSV/TSV, Python, YAML, text,
+TOML, shell and Git/editor configuration files. Stage new artifacts before
+checking; ignored and untracked working records are outside its scope. It rejects
+em dashes, Unicode ellipses and three-dot ellipses with file and line diagnostics.
+
 Pin a full Git commit when building a retrieval corpus. Keep each card whole and
 preserve its status and references. All current cards are asserted/unreviewed.
 Promotion requires independent review and appropriately scoped runtime evidence.

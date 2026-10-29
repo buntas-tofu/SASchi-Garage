@@ -1,0 +1,621 @@
+{
+  "schema_version": 1,
+  "as_of": "2026-10-28",
+  "status": "Handoff for principal/maintainer review; bounded repository/base-R evidence, not live-SAS validation or collection promotion.",
+  "repository": "https://github.com/buntas-tofu/SASchi-Go",
+  "snapshot": {
+    "commit": "9b86f957941a2dca14a90e8504f7913759e7e269",
+    "note": "Named verified A3 merge snapshot, including DS-040 DO OVER, DS-041 nested/computed counted loops and DS-042 mixed PUT. Existing hosted evidence was inspected; this Garage refresh does not rerun Go or SAS.",
+    "acceptance": {
+      "basis": "RECORDED_NOT_RERUN",
+      "fixture_gates": 50,
+      "suites": 40,
+      "tests": 755,
+      "skips": 0,
+      "checks_across_two_1k_workloads": 39,
+      "complete_program_proofs": 11,
+      "context_refs": [
+        "coverage_backlog"
+      ],
+      "public_run_url": "https://github.com/buntas-tofu/SASchi-Go/actions/runs/40718206801",
+      "verification_inventory": "research/GO_VERIFICATION_20261028.json"
+    }
+  },
+  "historical_queue": {
+    "path": "research/SAS_FIXTURE_QUEUE_20260915.csv",
+    "execution_status": "DESIGN_ONLY_NOT_RUN",
+    "note": "The September designs remain historical proposals. Related Go witnesses do not execute or promote those original queue entries."
+  },
+  "artifacts": {
+    "rulebook": {
+      "kind": "rulebook",
+      "path": "docs/sasconversionrulebook.json",
+      "sha256": "d07705f47a06e7d4ba506e73c26ed0908d2dd79a9f402f4a44316f433dd11cd9",
+      "url": "https://github.com/buntas-tofu/SASchi-Go/blob/9b86f957941a2dca14a90e8504f7913759e7e269/docs/sasconversionrulebook.json",
+      "rule_ids": [
+        "DS-005",
+        "DS-006",
+        "DS-007",
+        "DS-016",
+        "DS-039",
+        "DS-040",
+        "DS-041",
+        "DS-042"
+      ]
+    },
+    "stateful_profile": {
+      "kind": "profile",
+      "path": "docs/STATEFUL_EXECUTION.md",
+      "sha256": "23603e1a346e1cd328a9b7b14e759b12100535d8c6c18afd89625745008c14e5",
+      "url": "https://github.com/buntas-tofu/SASchi-Go/blob/9b86f957941a2dca14a90e8504f7913759e7e269/docs/STATEFUL_EXECUTION.md"
+    },
+    "numeric_profile": {
+      "kind": "profile",
+      "path": "docs/NUMERIC_ARRAYS.md",
+      "sha256": "419fbf19246752a1d5948c52149b114afc9d9be867075c3df2a12086d7089c60",
+      "url": "https://github.com/buntas-tofu/SASchi-Go/blob/9b86f957941a2dca14a90e8504f7913759e7e269/docs/NUMERIC_ARRAYS.md"
+    },
+    "coverage_backlog": {
+      "kind": "profile",
+      "path": "docs/COVERAGE_BACKLOG.md",
+      "sha256": "28cd147c6bbb8fec8dd9c9bca168e281694ed9b0c94c6cd51236fe4638f1ddf8",
+      "url": "https://github.com/buntas-tofu/SASchi-Go/blob/9b86f957941a2dca14a90e8504f7913759e7e269/docs/COVERAGE_BACKLOG.md"
+    },
+    "events_gate": {
+      "kind": "gate",
+      "path": "examples/verify_events.py",
+      "sha256": "a5294f7511628371f7d85d45561eb082e4251af7680ee406f2f04d6377bb0f3c",
+      "url": "https://github.com/buntas-tofu/SASchi-Go/blob/9b86f957941a2dca14a90e8504f7913759e7e269/examples/verify_events.py"
+    },
+    "events_r": {
+      "kind": "base_r",
+      "path": "examples/events.R",
+      "sha256": "77ace25ecf620e08c4283f439c5f81cde2f06628f162026abb1a19407f392ae9",
+      "url": "https://github.com/buntas-tofu/SASchi-Go/blob/9b86f957941a2dca14a90e8504f7913759e7e269/examples/events.R"
+    },
+    "events_suite": {
+      "kind": "source_suite",
+      "path": "saschi/test_events.py",
+      "sha256": "da1e98031b69e29494221d6dddad61cd58707a573498d0a3e7adc612cc136608",
+      "url": "https://github.com/buntas-tofu/SASchi-Go/blob/9b86f957941a2dca14a90e8504f7913759e7e269/saschi/test_events.py"
+    },
+    "events_program": {
+      "kind": "original_program",
+      "path": "examples/events/job.sas",
+      "sha256": "ac5bf41ce841b16989cdc38a0036a23db7a9e3cccdc75b913cfb2ef15f256938",
+      "url": "https://github.com/buntas-tofu/SASchi-Go/blob/9b86f957941a2dca14a90e8504f7913759e7e269/examples/events/job.sas"
+    },
+    "events_expected": {
+      "kind": "original_pin",
+      "path": "examples/events/expected.json",
+      "sha256": "dd075a9f407e967affc5b3c3d6174c59c4233b478de61ef43d0ea725d6edaaae",
+      "url": "https://github.com/buntas-tofu/SASchi-Go/blob/9b86f957941a2dca14a90e8504f7913759e7e269/examples/events/expected.json"
+    },
+    "lag_reference_gate": {
+      "kind": "gate",
+      "path": "examples/verify_lag.py",
+      "sha256": "461eafeb33f5d6ff4e27ed24208bb3d1bbf7cab28fab0363e1a4fa6ceae59293",
+      "url": "https://github.com/buntas-tofu/SASchi-Go/blob/9b86f957941a2dca14a90e8504f7913759e7e269/examples/verify_lag.py"
+    },
+    "lag_reference_r": {
+      "kind": "base_r",
+      "path": "examples/lag.R",
+      "sha256": "428118f67bec01f98e5834a02dfdd62c2232ddbc7cef27ca75e4a050925b875f",
+      "url": "https://github.com/buntas-tofu/SASchi-Go/blob/9b86f957941a2dca14a90e8504f7913759e7e269/examples/lag.R"
+    },
+    "lag_gate": {
+      "kind": "gate",
+      "path": "examples/verify_lag_execution.py",
+      "sha256": "5676872c9bf71cfce31dc6b1549d069b381eda08c8a4f7f3df43f09b22bc27c1",
+      "url": "https://github.com/buntas-tofu/SASchi-Go/blob/9b86f957941a2dca14a90e8504f7913759e7e269/examples/verify_lag_execution.py"
+    },
+    "lag_r": {
+      "kind": "base_r",
+      "path": "examples/lag_execution.R",
+      "sha256": "a75220813e1da5d2c424cdce0b494dfc4f7d3dbe2827454e5cb0e5016c65a7b9",
+      "url": "https://github.com/buntas-tofu/SASchi-Go/blob/9b86f957941a2dca14a90e8504f7913759e7e269/examples/lag_execution.R"
+    },
+    "lag_suite": {
+      "kind": "source_suite",
+      "path": "saschi/test_lag_execution.py",
+      "sha256": "bdab3d6f28226f74b2ca0252fd5bd4e999a8862004ace605de9fac53f1a11837",
+      "url": "https://github.com/buntas-tofu/SASchi-Go/blob/9b86f957941a2dca14a90e8504f7913759e7e269/saschi/test_lag_execution.py"
+    },
+    "array_reference_gate": {
+      "kind": "gate",
+      "path": "examples/verify_arrays.py",
+      "sha256": "0b79aff0e5ad83802a375dbe9bc353a8b01df989ef8e8e0e058ebc04c046872c",
+      "url": "https://github.com/buntas-tofu/SASchi-Go/blob/9b86f957941a2dca14a90e8504f7913759e7e269/examples/verify_arrays.py"
+    },
+    "array_reference_r": {
+      "kind": "base_r",
+      "path": "examples/arrays.R",
+      "sha256": "757623f965d70e214bd0c775972aebe5f9f50c6eca4d65cbdbe10165c49fb3f8",
+      "url": "https://github.com/buntas-tofu/SASchi-Go/blob/9b86f957941a2dca14a90e8504f7913759e7e269/examples/arrays.R"
+    },
+    "numeric_gate": {
+      "kind": "gate",
+      "path": "examples/verify_numeric_arrays.py",
+      "sha256": "73e9030a69054e13af568b79f656462872ca267a0cc942424fa431f55634c9fe",
+      "url": "https://github.com/buntas-tofu/SASchi-Go/blob/9b86f957941a2dca14a90e8504f7913759e7e269/examples/verify_numeric_arrays.py"
+    },
+    "numeric_r": {
+      "kind": "base_r",
+      "path": "examples/numeric_arrays.R",
+      "sha256": "1b4daaf8f5991e66abd1d1a615b7ec33559a14871576e3c32186b97c73d41814",
+      "url": "https://github.com/buntas-tofu/SASchi-Go/blob/9b86f957941a2dca14a90e8504f7913759e7e269/examples/numeric_arrays.R"
+    },
+    "numeric_suite": {
+      "kind": "source_suite",
+      "path": "saschi/test_numeric_arrays.py",
+      "sha256": "59a0fe74f678c007360953333812ba78798865b86e93254a38314cda11ee9be1",
+      "url": "https://github.com/buntas-tofu/SASchi-Go/blob/9b86f957941a2dca14a90e8504f7913759e7e269/saschi/test_numeric_arrays.py"
+    },
+    "over_gate": {
+      "kind": "gate",
+      "path": "examples/verify_do_over.py",
+      "sha256": "a37f2a7571be052419f70cb6d7098a66478bab643ec354451901a31c4fc699f2",
+      "url": "https://github.com/buntas-tofu/SASchi-Go/blob/9b86f957941a2dca14a90e8504f7913759e7e269/examples/verify_do_over.py"
+    },
+    "over_r": {
+      "kind": "base_r",
+      "path": "examples/do_over.R",
+      "sha256": "c6394cffc1f9c72343106426bb2caa461eee7ca47d844ebe5a05142c616e6758",
+      "url": "https://github.com/buntas-tofu/SASchi-Go/blob/9b86f957941a2dca14a90e8504f7913759e7e269/examples/do_over.R"
+    },
+    "over_suite": {
+      "kind": "source_suite",
+      "path": "saschi/test_do_over.py",
+      "sha256": "fcd012493d28d83002fde829c1c9b7ca6b90b2ce58082351d28bfc7083ba8779",
+      "url": "https://github.com/buntas-tofu/SASchi-Go/blob/9b86f957941a2dca14a90e8504f7913759e7e269/saschi/test_do_over.py"
+    },
+    "over_profile": {
+      "kind": "profile",
+      "path": "docs/DO_OVER.md",
+      "sha256": "7ed8b1e178642c30649a14b5b6ab78a3805e6dd6beb27f61adb5833d7aae4390",
+      "url": "https://github.com/buntas-tofu/SASchi-Go/blob/9b86f957941a2dca14a90e8504f7913759e7e269/docs/DO_OVER.md"
+    },
+    "counted_gate": {
+      "kind": "gate",
+      "path": "examples/verify_counted_nested.py",
+      "sha256": "e89382773b62bff9e6e202fb963cb7ad28a2b63c542f0e2d002e9209427847ce",
+      "url": "https://github.com/buntas-tofu/SASchi-Go/blob/9b86f957941a2dca14a90e8504f7913759e7e269/examples/verify_counted_nested.py"
+    },
+    "counted_r": {
+      "kind": "base_r",
+      "path": "examples/counted_nested.R",
+      "sha256": "bd66f753347dff78fef1a069a95df3bb9165431271a03a0638c45722bec4b9f8",
+      "url": "https://github.com/buntas-tofu/SASchi-Go/blob/9b86f957941a2dca14a90e8504f7913759e7e269/examples/counted_nested.R"
+    },
+    "counted_suite": {
+      "kind": "source_suite",
+      "path": "saschi/test_counted_nested.py",
+      "sha256": "16d8bbaa21c6820759069ec94c924837d0ed5a1381760e8dc94c911370a61315",
+      "url": "https://github.com/buntas-tofu/SASchi-Go/blob/9b86f957941a2dca14a90e8504f7913759e7e269/saschi/test_counted_nested.py"
+    },
+    "counted_profile": {
+      "kind": "profile",
+      "path": "docs/COUNTED_LOOPS.md",
+      "sha256": "f88ec9790eb99d0cc02ad7a1189f262f8cd2c543784613264eb44b11bcbad131",
+      "url": "https://github.com/buntas-tofu/SASchi-Go/blob/9b86f957941a2dca14a90e8504f7913759e7e269/docs/COUNTED_LOOPS.md"
+    },
+    "mixed_gate": {
+      "kind": "gate",
+      "path": "examples/verify_put_mixed_numeric.py",
+      "sha256": "deaa7f7b3329f7d4177cda5736a62cc4eda584bc4ce7d01f559b667f217458fa",
+      "url": "https://github.com/buntas-tofu/SASchi-Go/blob/9b86f957941a2dca14a90e8504f7913759e7e269/examples/verify_put_mixed_numeric.py"
+    },
+    "mixed_r": {
+      "kind": "base_r",
+      "path": "examples/put_mixed_numeric.R",
+      "sha256": "6d06a02cd154aa8a1fa8a5bede58ba76f7cabdac3c1348a034800e9462dcddaf",
+      "url": "https://github.com/buntas-tofu/SASchi-Go/blob/9b86f957941a2dca14a90e8504f7913759e7e269/examples/put_mixed_numeric.R"
+    },
+    "mixed_suite": {
+      "kind": "source_suite",
+      "path": "saschi/test_put_mixed_numeric.py",
+      "sha256": "d71a98693d391092c8b0b84966d311e6a3591ddfbc4293c7f78ba851705912e1",
+      "url": "https://github.com/buntas-tofu/SASchi-Go/blob/9b86f957941a2dca14a90e8504f7913759e7e269/saschi/test_put_mixed_numeric.py"
+    },
+    "mixed_profile": {
+      "kind": "profile",
+      "path": "docs/MIXED_PUT.md",
+      "sha256": "59a3f4426731910951c3df68d98b18972f3b203dfc87f4cf6553bb85386f5d98",
+      "url": "https://github.com/buntas-tofu/SASchi-Go/blob/9b86f957941a2dca14a90e8504f7913759e7e269/docs/MIXED_PUT.md"
+    },
+    "counted_program": {
+      "kind": "original_program",
+      "path": "examples/counted_capture.sas",
+      "sha256": "7e5a469154300963c3f619da372af0b1631c6f51d75a80ea0b67375a5be46025",
+      "url": "https://github.com/buntas-tofu/SASchi-Go/blob/9b86f957941a2dca14a90e8504f7913759e7e269/examples/counted_capture.sas"
+    },
+    "mixed_program": {
+      "kind": "original_program",
+      "path": "examples/mixed_put_capture.sas",
+      "sha256": "a24331f7dc7ca0a41c06e72919d2aa072fb742db45d6f0b630089f92b2eeaa45",
+      "url": "https://github.com/buntas-tofu/SASchi-Go/blob/9b86f957941a2dca14a90e8504f7913759e7e269/examples/mixed_put_capture.sas"
+    }
+  },
+  "cards": [
+    {
+      "card_id": "SL-003",
+      "path": "corpora/sas-conversion-landmines/sl-003-pdv-state.md",
+      "commit": "9b86f957941a2dca14a90e8504f7913759e7e269",
+      "rule_ids": [
+        "DS-006",
+        "DS-040",
+        "DS-041"
+      ],
+      "profile_refs": [
+        "stateful_profile",
+        "over_profile",
+        "counted_profile"
+      ],
+      "documentation": {
+        "source_id": "S05",
+        "url": "https://support.sas.com/documentation/cdl/en/lrdict/64316/HTML/default/a000214163.htm",
+        "consulted": "2026-09-15",
+        "recheck": {
+          "date": "2026-10-28",
+          "result": "TIMEOUT_UNRESOLVED",
+          "note": "Direct retrieval timed out again; accessibility unresolved, not proven broken. Original consultation date retained."
+        }
+      },
+      "evidence": [
+        {
+          "level": "BOUNDED_SOURCE_AND_BASE_R",
+          "refs": [
+            "events_gate",
+            "events_r",
+            "events_suite",
+            "events_program",
+            "events_expected"
+          ],
+          "covered": "One IF _N_=1 THEN SET lookup before a driving SET reads the first lookup row once. Lookup/input variables retain current values until overwritten; numeric RETAIN initializes once, ordinary scratch variables reset per input iteration. The composed original program emits five snapshots from three WHERE-selected rows, with scratch missing after the first row.",
+          "source_tests": [
+            "test_retained_input_and_scratch_have_different_lifetimes",
+            "test_driver_overwrites_overlapping_lookup_value",
+            "test_empty_sources_preserve_schema",
+            "test_retention_survives_subsetting_rejection"
+          ]
+        },
+        {
+          "level": "BOUNDED_SOURCE_AND_BASE_R",
+          "refs": [
+            "over_gate",
+            "over_r",
+            "over_suite"
+          ],
+          "covered": "Single-level implicit numeric DO OVER aliases actual row variables and resets scratch/current state each input row and run. Internal position is not an output column. Existing SET and general retention gaps remain separate.",
+          "source_tests": [
+            "test_scratch_elements_and_current_reset_each_row",
+            "test_plan_catalog_and_each_run_are_isolated"
+          ]
+        },
+        {
+          "level": "BOUNDED_SOURCE_AND_BASE_R",
+          "refs": [
+            "counted_gate",
+            "counted_r",
+            "counted_suite",
+            "counted_program"
+          ],
+          "covered": "Bounded nested/computed counted trees reset per-row work state, preserve input index descriptors and isolate runs. Captured controls and original six-snapshot base-R schedules extend composition evidence without generalizing conditional SET.",
+          "source_tests": [
+            "test_per_row_reset_N_and_input_index_descriptors",
+            "test_plan_catalog_and_run_state_isolation"
+          ]
+        }
+      ],
+      "remaining_gaps": [
+        "General conditional SET, multiple lookup reads, SET concatenation/options and uninitialized RETAIN lists are outside this event profile.",
+        "This SET witness does not establish MERGE-input write-event behavior or arbitrary whole-step composition.",
+        "Independent card review and live-SAS captures with product/version/options and source/input pins remain outstanding."
+      ]
+    },
+    {
+      "card_id": "SL-004",
+      "path": "corpora/sas-conversion-landmines/sl-004-where-if.md",
+      "commit": "9b86f957941a2dca14a90e8504f7913759e7e269",
+      "rule_ids": [
+        "DS-005",
+        "DS-006"
+      ],
+      "profile_refs": [
+        "stateful_profile"
+      ],
+      "documentation": {
+        "source_id": "S03",
+        "url": "https://support.sas.com/documentation/cdl/en/lestmtsref/63323/HTML/default/n1xbr9r0s9veq0n137iftzxq4g7e.htm",
+        "consulted": "2026-09-15",
+        "recheck": {
+          "date": "2026-10-28",
+          "result": "TIMEOUT_UNRESOLVED",
+          "note": "Direct retrieval timed out again; accessibility unresolved, not proven broken. Original consultation date retained."
+        }
+      },
+      "evidence": [
+        {
+          "level": "BOUNDED_SOURCE_AND_BASE_R",
+          "refs": [
+            "events_gate",
+            "events_r",
+            "events_suite",
+            "events_program",
+            "events_expected"
+          ],
+          "covered": "WHERE selects driving input before BY flags and _N_ are formed; subsetting IF runs in source order after the read and flags. For groups 7,7,9 with keep 0,1,1, FIRST.g is 1,1 after WHERE and 0,1 after IF. The source suite pins LAST.g for selected groups and prefix propagation for multi-key FIRST./LAST. flags.",
+          "source_tests": [
+            "test_where_precedes_by_if_follows_by",
+            "test_where_uses_input_not_assignment",
+            "test_by_prefix_flags_and_group_reset",
+            "test_sorted_by_required_and_unknown_flags_rejected"
+          ]
+        }
+      ],
+      "remaining_gaps": [
+        "WHERE is restricted to driving-input columns and bounded predicates; automatic/created variables in WHERE refuse.",
+        "Ascending BY input must be sorted after WHERE selection; this does not cover arbitrary SAS engines, general expressions or all BY options.",
+        "The base-R filter discriminator directly compares FIRST; LAST and prefix propagation also have repository source assertions, not live-SAS captures. Independent review remains required."
+      ]
+    },
+    {
+      "card_id": "SL-005",
+      "path": "corpora/sas-conversion-landmines/sl-005-explicit-output.md",
+      "commit": "9b86f957941a2dca14a90e8504f7913759e7e269",
+      "rule_ids": [
+        "DS-006",
+        "DS-040",
+        "DS-041",
+        "DS-042"
+      ],
+      "profile_refs": [
+        "stateful_profile",
+        "over_profile",
+        "counted_profile",
+        "mixed_profile"
+      ],
+      "documentation": {
+        "source_id": "S06",
+        "url": "https://support.sas.com/documentation/cdl/en/lestmtsref/63323/HTML/default/n1lltvbis7ye1an1eryo4leh2mck.htm",
+        "consulted": "2026-09-15",
+        "recheck": {
+          "date": "2026-10-28",
+          "result": "TIMEOUT_UNRESOLVED",
+          "note": "Direct retrieval timed out again; accessibility unresolved, not proven broken. Original consultation date retained."
+        }
+      },
+      "evidence": [
+        {
+          "level": "BOUNDED_SOURCE_AND_BASE_R",
+          "refs": [
+            "events_gate",
+            "events_r",
+            "events_suite",
+            "events_program",
+            "events_expected"
+          ],
+          "covered": "OUTPUT snapshots current PDV values immediately. The original 13/29/47 assignment witness emits 13 and 29 only. An explicit OUTPUT anywhere suppresses implicit output, including a skipped conditional OUTPUT; a snapshot survives a later subsetting-IF rejection. The composed original program emits five ordered rows from three selected input rows.",
+          "source_tests": [
+            "test_output_snapshots_and_suppression",
+            "test_output_before_rejection_survives",
+            "test_no_implicit_output_per_input_row"
+          ]
+        },
+        {
+          "level": "BOUNDED_SOURCE_AND_BASE_R",
+          "refs": [
+            "over_gate",
+            "over_r",
+            "over_suite"
+          ],
+          "covered": "DO OVER snapshots capture each executed OUTPUT and preserve skipped-OUTPUT suppression; schema discovery includes future and skipped fields.",
+          "source_tests": [
+            "test_multiple_outputs_capture_each_point",
+            "test_skipped_output_suppresses_implicit",
+            "test_future_and_skipped_descriptors_are_discovered"
+          ]
+        },
+        {
+          "level": "BOUNDED_SOURCE_AND_BASE_R",
+          "refs": [
+            "counted_gate",
+            "counted_r",
+            "counted_suite"
+          ],
+          "covered": "Nested counted bodies preserve snapshot values/multiplicity and whole-step implicit-output suppression, including skipped OUTPUT. Later execution failures remain atomic.",
+          "source_tests": [
+            "test_explicit_output_suppresses_implicit_even_when_skipped",
+            "test_multiple_outputs_and_future_values",
+            "test_atomic_late_row_failure_and_source_line"
+          ]
+        },
+        {
+          "level": "BOUNDED_SOURCE_AND_BASE_R",
+          "refs": [
+            "mixed_gate",
+            "mixed_r",
+            "mixed_suite",
+            "mixed_program"
+          ],
+          "covered": "Mixed PUT writes logical records without emitting rows or changing OUTPUT suppression. The original three-snapshot alias/missing program has independent base-R rows/logs; late-row failure publishes no partial result.",
+          "source_tests": [
+            "test_put_does_not_output_rows_or_change_output_suppression",
+            "test_original_complete_program_source_result_stdout_R",
+            "test_late_input_row_failure_is_atomic"
+          ]
+        }
+      ],
+      "remaining_gaps": [
+        "The event profile admits one simple DATA destination and bare OUTPUT or OUTPUT to that destination; multiple destinations remain deferred.",
+        "DS-006 is adjacent state context, not a dedicated OUTPUT rule or proof for every output context. DATA _NULL_ explicit OUTPUT with PUT_ALL or counted/UNTIL/WHILE/OVER loops is refused; scalar DATA _NULL_ OUTPUT is outside these mapped named-dataset witnesses, not a general source refusal. Broader destination routing needs separate evidence.",
+        "Independent review and live-SAS cardinality/value/order captures remain outstanding; OUTPUT citation access is unresolved."
+      ]
+    },
+    {
+      "card_id": "SL-007",
+      "path": "corpora/sas-conversion-landmines/sl-007-lag-history.md",
+      "commit": "9b86f957941a2dca14a90e8504f7913759e7e269",
+      "rule_ids": [
+        "DS-007",
+        "DS-041"
+      ],
+      "profile_refs": [
+        "stateful_profile",
+        "counted_profile"
+      ],
+      "documentation": {
+        "source_id": "S02",
+        "url": "https://support.sas.com/documentation/cdl/en/lefunctionsref/63354/HTML/default/n0l66p5oqex1f2n1quuopdvtcjqb.htm",
+        "consulted": "2026-09-15",
+        "recheck": {
+          "date": "2026-10-28",
+          "result": "RETRIEVED",
+          "note": "Primary page retrieved directly; original citation/version scope and consultation date retained."
+        }
+      },
+      "evidence": [
+        {
+          "level": "REFERENCE_AND_BASE_R",
+          "refs": [
+            "lag_reference_gate",
+            "lag_reference_r"
+          ],
+          "covered": "Preserved raw reference queue fixtures cover conditional invocation history, depth, independent occurrences, DIF and missing pushes. These helper fixtures are separate from source execution.",
+          "source_tests": []
+        },
+        {
+          "level": "BOUNDED_SOURCE_AND_BASE_R",
+          "refs": [
+            "lag_gate",
+            "lag_r",
+            "lag_suite"
+          ],
+          "covered": "Canonical numeric LAG/DIF and depths 1 through 100 execute as direct assignment RHS calls in bounded IF/ELSE and counted-DO leaves. Each structural source occurrence owns a missing-initialized queue, advanced only on invocation. Queues persist across input rows and counted-loop trips; each step/run resets them. BY boundaries do not flush queues and OUTPUT does not advance them. Four pins and 300 constructed runtime/R cases distinguish conditional invocation from conditional use and enqueue ordinary missing.",
+          "source_tests": [
+            "test_conditional_invocation_differs_from_conditional_use",
+            "test_identical_same_line_calls_own_independent_queues",
+            "test_loop_path_excludes_trip_and_input_row",
+            "test_where_and_subsetting_timing",
+            "test_by_boundary_does_not_reset_queue_and_masking_does_not_flush",
+            "test_output_snapshots_do_not_advance_queues",
+            "test_each_step_and_each_run_starts_fresh",
+            "test_lag2_dif2_and_ordinary_aliases"
+          ]
+        }
+      ],
+      "remaining_gaps": [
+        "Arguments are finite numeric or ordinary missing literals, numeric variables or _N_; character/tagged/nonfinite values and argument expressions remain refused.",
+        "Nested calls, arithmetic/function consumers, predicates/WHERE queue calls, array arguments, PUT_ALL and C++ execution remain deferred. UNTIL/WHILE queue scheduling is not covered by the counted-DO evidence. DS-041 nested/computed counted bodies and DO OVER also refuse LAG/DIF; the older counted witness is the DS-026 literal-only single-level profile.",
+        "Tool depth bounds and atomic refusals are repository policies, not SAS limits or diagnostic emulation. Independent review and live-SAS queue traces remain outstanding."
+      ]
+    },
+    {
+      "card_id": "SL-022",
+      "path": "corpora/sas-conversion-landmines/sl-022-array-aliasing.md",
+      "commit": "9b86f957941a2dca14a90e8504f7913759e7e269",
+      "rule_ids": [
+        "DS-016",
+        "DS-039",
+        "DS-040",
+        "DS-041",
+        "DS-042"
+      ],
+      "profile_refs": [
+        "numeric_profile",
+        "stateful_profile",
+        "over_profile",
+        "counted_profile",
+        "mixed_profile"
+      ],
+      "documentation": {
+        "source_id": "S22",
+        "url": "https://support.sas.com/documentation/cdl/en/lestmtsref/63323/HTML/default/p08do6szetrxe2n136ush727sbuo.htm",
+        "consulted": "2026-09-15",
+        "recheck": {
+          "date": "2026-10-28",
+          "result": "RETRIEVED",
+          "note": "Primary page retrieved directly; original citation/version scope and consultation date retained."
+        }
+      },
+      "evidence": [
+        {
+          "level": "REFERENCE_AND_BASE_R",
+          "refs": [
+            "array_reference_gate",
+            "array_reference_r"
+          ],
+          "covered": "DS-016 reference context retains helper-level aliasing, custom bounds, DIM/LBOUND/HBOUND and temporary retention/reset witnesses. Broader helper evidence does not admit those constructs through the source translator.",
+          "source_tests": []
+        },
+        {
+          "level": "BOUNDED_SOURCE_AND_BASE_R",
+          "refs": [
+            "numeric_gate",
+            "numeric_r",
+            "numeric_suite"
+          ],
+          "covered": "DS-039 adds one-dimensional numeric ARRAY source declarations, indexed alias reads/writes in both directions, overlapping bindings, ordered SUM OF, descriptor discovery, scratch row/run reset and OUTPUT snapshots. It admits explicit/unpadded ascending numbered/generated element names, fixed/custom bounds and inferred extents with names. The gate has 19 pins, 1600 constructive native-R cases and 26 shared refusals; source tests check eager static and selected-path dynamic failures and atomic publication.",
+          "source_tests": [
+            "test_aliasing_both_directions",
+            "test_overlapping_arrays_share_current_bindings",
+            "test_output_snapshots_include_future_descriptors",
+            "test_scratch_elements_reset_per_input_row",
+            "test_repeated_runs_and_steps_have_separate_bindings",
+            "test_inherited_descriptors_and_input_immutability",
+            "test_literal_indices_refuse_even_when_skipped",
+            "test_bad_dynamic_indices_are_lazy_and_atomic",
+            "test_later_profiles_remain_refused"
+          ]
+        },
+        {
+          "level": "BOUNDED_SOURCE_AND_BASE_R",
+          "refs": [
+            "over_gate",
+            "over_r",
+            "over_suite"
+          ],
+          "covered": "Implicit numeric arrays bind current-element reads/writes to actual row variables in declaration order. Overlapping arrays share storage. The entire unchanged loops_foreach.sas passes source/result/stdout pins and independent base R.",
+          "source_tests": [
+            "test_declared_order_and_alias_reads_writes",
+            "test_overlapping_arrays_share_actual_variables",
+            "test_full_unmodified_external_program"
+          ]
+        },
+        {
+          "level": "BOUNDED_SOURCE_AND_BASE_R",
+          "refs": [
+            "counted_gate",
+            "counted_r",
+            "counted_suite"
+          ],
+          "covered": "Bounded nested/computed counted loops compose with indexed arrays, capture controls on entry, protect active indices and retain original source/result/stdout and base-R snapshot evidence.",
+          "source_tests": [
+            "test_aliases_cannot_mutate_loop_indices",
+            "test_multiple_outputs_and_future_values"
+          ]
+        },
+        {
+          "level": "BOUNDED_SOURCE_AND_BASE_R",
+          "refs": [
+            "mixed_gate",
+            "mixed_r",
+            "mixed_suite"
+          ],
+          "covered": "The entire unchanged 100_doors.sas composes numeric array aliases, nested computed loops and mixed literal/numeric PUT. Exact source/result/stdout pins agree with independent base R and the ten-perfect-squares hand proof. Direct array/current-element PUT remains outside the profile.",
+          "source_tests": [
+            "test_full_unmodified_external_program",
+            "test_reserved_names_and_array_controls_refuse"
+          ]
+        }
+      ],
+      "remaining_gaps": [
+        "DO OVER stays single-level and implicit numeric only. Explicit arrays as OVER controls, named/shared implicit indices, mixed indexed/current references and current-element PUT remain deferred. DS-041 permits at most 8 counted levels and 10000 aggregate bounded iterations per DATA row; DS-042 retains 64 logical columns and conservative integer fields.",
+        "At most 1024 declared element references per step, including overlaps; bounds, stored values and every new arithmetic/ordered SUM OF partial result are within signed 2147483647. Storage is finite binary64 or ordinary missing, with exact representability required for new plus/minus arithmetic.",
+        "Declarations are unconditional and precede references. Element references accept braces/brackets; declaration bounds also accept parentheses. Parenthetical element references, character/multidimensional/temporary/initializer-retained arrays, PDV-order lists and macro extents remain deferred.",
+        "DIM/LBOUND/HBOUND source calls, direct calls/division inside new array expressions, array WHERE/PUT_ALL/C++/MERGE execution and members used as RETAIN/sum-statement/BY/loop-index state remain deferred. Existing declaration/initial-lookup ordering guards apply.",
+        "Independent card review and live-SAS aliasing, descriptor and retention comparisons remain outstanding."
+      ]
+    }
+  ]
+}
